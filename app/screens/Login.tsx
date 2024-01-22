@@ -35,15 +35,6 @@ const Login = ({navigation}: RouterProps) => {
 
   const signUp = async () => {
     navigation.navigate('Register');
-    // setLoading(true)
-    // try {
-    //   const res = await createUserWithEmailAndPassword(auth, email, password)
-    // } catch (error: any) {
-    //   console.log(error)
-    //   alert('Sign up failed ' + error.message )
-    // } finally {
-    //   setLoading(false)
-    // }
   }
 
   return (  
@@ -116,6 +107,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 10,
     marginBottom: 10,
+    color: "#FFF"
   },
   button: {
     alignItems: 'center',

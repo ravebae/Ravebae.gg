@@ -4,6 +4,7 @@ import { FIREBASE_AUTH } from '../../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
 import { RouterProps } from './List';
+import Logo from '../components/Logo';
 
 const Register = ({navigation}: RouterProps) => {
   const [email, setEmail] = useState('');
@@ -19,35 +20,29 @@ const Register = ({navigation}: RouterProps) => {
   
   const auth = FIREBASE_AUTH;
 
-  const signIn = async () => {
-    setLoading(true);
+  const signUp = async () => {
+    setLoading(true)
     try {
-      const res = await signInWithEmailAndPassword(auth, email, password)
-      alert('Check your email!')
+      const res = await createUserWithEmailAndPassword(auth, email, password)
     } catch (error: any) {
       console.log(error)
-      alert('Sign in failed ' + error.message )
+      alert('Sign up failed ' + error.message )
     } finally {
       setLoading(false)
     }
   } 
 
-  const signUp = async () => {
+  const signIn = async () => {
     navigation.navigate('Login');
-    // setLoading(true)
-    // try {
-    //   const res = await createUserWithEmailAndPassword(auth, email, password)
-    // } catch (error: any) {
-    //   console.log(error)
-    //   alert('Sign up failed ' + error.message )
-    // } finally {
-    //   setLoading(false)
-    // }
   }
 
   return (  
     <View style={styles.container}>
       <KeyboardAvoidingView behavior='padding'>
+        <View style={styles.logoWrapper}>
+          <Logo />
+        </View>
+        <Text style={styles.title}>REGISTER</Text>
         <TextInput 
           value={email} 
           style={styles.input} 
@@ -70,12 +65,12 @@ const Register = ({navigation}: RouterProps) => {
           <ActivityIndicator size="large" color="#0000ff" />
           :
           <>
-            <Pressable style={styles.button} onPress={signIn}>
+            <Pressable style={styles.button} onPress={signUp}>
               <Text style={styles.buttonText}>REGISTER</Text>
             </Pressable>
-            <Text style={styles.register} onPress={signUp}>
+            <Text style={styles.register} onPress={signIn}>
               Already have an account?
-              <Text style={{fontWeight: "bold", color: '#A94BF3'}} onPress={signUp}> Login Here</Text>
+              <Text style={{fontWeight: "bold", color: '#A94BF3'}} onPress={signIn}> Login Here</Text>
             </Text>
           </>
         }
@@ -91,6 +86,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#081E23',
   },
+  logoWrapper: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 15,
+  },
+  title: {
+    marginLeft: -10,
+    marginBottom: 20,
+    color: '#FFF',
+    fontFamily: 'JockeyOne_400Regular',
+    fontSize: 40
+  },
   input: {
     marginVertical: 4,
     height: 50,
@@ -98,7 +105,8 @@ const styles = StyleSheet.create({
     borderColor: '#E4C1FF',
     borderRadius: 4,
     padding: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    color: "#FFF"
   },
   button: {
     alignItems: 'center',

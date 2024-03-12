@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
@@ -9,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './firebaseConfig';
 import Register from './app/screens/Register';
+import Step1 from './app/screens/Step1';
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -18,6 +20,7 @@ function InsideLayout () {
     <InsideStack.Navigator>
       <InsideStack.Screen name="My profile" component={List}/>
       <InsideStack.Screen name="details" component={Details}/>
+      <InsideStack.Screen name="step" component={Step1}/>
     </InsideStack.Navigator>
   )
 }

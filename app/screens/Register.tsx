@@ -1,83 +1,101 @@
-import { View, Text, StyleSheet, TextInput, ActivityIndicator, Button, KeyboardAvoidingView, Pressable } from 'react-native'
-import React, { useState } from 'react'
-import { FIREBASE_AUTH } from '../../firebaseConfig';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  ActivityIndicator,
+  Button,
+  KeyboardAvoidingView,
+  Pressable,
+} from 'react-native';
+import React, { useState } from 'react';
+import { FIREBASE_AUTH } from 'firebaseConfig';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
 import { RouterProps } from './List';
-import Logo from '../components/Logo';
+import Logo from '@components/Logo';
 
-const Register = ({navigation}: RouterProps) => {
+const Register = ({ navigation }: RouterProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   const [fontsLoaded] = useFonts({
-    JockeyOne_400Regular
+    JockeyOne_400Regular,
   });
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;
   }
-  
+
   const auth = FIREBASE_AUTH;
 
   const signUp = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password)
+      const res = await createUserWithEmailAndPassword(auth, email, password);
     } catch (error: any) {
-      console.log(error)
-      alert('Sign up failed ' + error.message )
+      console.log(error);
+      alert('Sign up failed ' + error.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  } 
+  };
 
   const signIn = async () => {
     navigation.navigate('Login');
-  }
+  };
 
-  return (  
+  return (
     <View style={styles.container}>
       <KeyboardAvoidingView behavior='padding'>
         <View style={styles.logoWrapper}>
           <Logo />
         </View>
         <Text style={styles.title}>REGISTER</Text>
-        <TextInput 
-          value={email} 
-          style={styles.input} 
-          placeholder='Email' 
-          autoCapitalize='none' 
+        <TextInput
+          value={email}
+          style={styles.input}
+          placeholder='Email'
+          autoCapitalize='none'
           onChangeText={(text) => setEmail(text)}
-          placeholderTextColor="#FFF"
+          placeholderTextColor='#FFF'
         />
-        <TextInput 
-          secureTextEntry={true} 
+        <TextInput
+          secureTextEntry={true}
           value={password}
-          style={styles.input} 
-          placeholder='Password' 
-          autoCapitalize='none' 
-          onChangeText={(text) => setPassword(text)} 
-          placeholderTextColor="#FFF"
+          style={styles.input}
+          placeholder='Password'
+          autoCapitalize='none'
+          onChangeText={(text) => setPassword(text)}
+          placeholderTextColor='#FFF'
         />
 
-        { loading ? 
-          <ActivityIndicator size="large" color="#0000ff" />
-          :
+        {loading ? (
+          <ActivityIndicator size='large' color='#0000ff' />
+        ) : (
           <>
             <Pressable style={styles.button} onPress={signUp}>
               <Text style={styles.buttonText}>REGISTER</Text>
             </Pressable>
             <Text style={styles.register} onPress={signIn}>
               Already have an account?
-              <Text style={{fontWeight: "bold", color: '#A94BF3'}} onPress={signIn}> Login Here</Text>
+              <Text
+                style={{ fontWeight: 'bold', color: '#A94BF3' }}
+                onPress={signIn}
+              >
+                {' '}
+                Login Here
+              </Text>
             </Text>
           </>
-        }
-      </KeyboardAvoidingView>  
+        )}
+      </KeyboardAvoidingView>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -96,7 +114,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#FFF',
     fontFamily: 'JockeyOne_400Regular',
-    fontSize: 40
+    fontSize: 40,
   },
   input: {
     marginVertical: 4,
@@ -106,7 +124,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 10,
     marginBottom: 10,
-    color: "#FFF"
+    color: '#FFF',
   },
   button: {
     alignItems: 'center',
@@ -116,20 +134,19 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     elevation: 3,
     backgroundColor: '#A94BF3',
-    marginBottom: 20
+    marginBottom: 20,
   },
   buttonText: {
     color: '#FFF',
     fontFamily: 'JockeyOne_400Regular',
-    fontSize: 20
+    fontSize: 20,
   },
   register: {
     color: '#FFF',
     alignItems: 'center',
     paddingVertical: 15,
     paddingHorizontal: 30,
-  }
-})
+  },
+});
 
-
-export default Register
+export default Register;

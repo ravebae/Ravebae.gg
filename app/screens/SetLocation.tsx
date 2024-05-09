@@ -1,7 +1,9 @@
 import React from 'react';
-import { Button, Picker, TouchableHighlight } from 'react-native';
+import { Button, TouchableHighlight, Text } from 'react-native';
+import Picker from '@react-native-picker/picker';
 import { Controller, useForm } from 'react-hook-form';
 import S from './styles'; 
+
 
 export const SetLocation = ({ navigation }) => {
     const { control, handleSubmit } = useForm({

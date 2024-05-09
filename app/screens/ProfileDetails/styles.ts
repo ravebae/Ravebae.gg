@@ -23,7 +23,8 @@ const Title = styled(Text)`
 
 const ContinueBtn = styled(View)`
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
   background-color: #a94bf3;
   color: #fff;
   font-weight: 800;

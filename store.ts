@@ -7,4 +7,5 @@ export const formStore = new Store({
   religion: '',
   familyPlan: '',
   race: '',
+  page: 0,
 });

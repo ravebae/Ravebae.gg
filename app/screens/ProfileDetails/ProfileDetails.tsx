@@ -1,4 +1,5 @@
 import { Controller, useForm } from 'react-hook-form';
+import data from '../../helper/languages.json';
 
 import S from './styles';
 import {
@@ -12,22 +13,23 @@ import {
 import React from 'react';
 import { formStore } from 'store';
 import Inputbox from '@components/Inputbox';
+import Dropdown from '@components/Dropdown';
 
 export const ProfileDetails = () => {
   const { register, control, handleSubmit } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (formData) => {
     formStore.update((s) => {
-      s.firstName = data.firstName;
-      s.lastName = data.lastName;
-      s.languageSpoken = data.languageSpoken;
-      s.religion = data.religion;
-      s.familyPlan = data.familyPlan;
-      s.race = data.race;
+      s.firstName = formData.firstName;
+      s.lastName = formData.lastName;
+      s.languageSpoken = formData.languageSpoken;
+      s.religion = formData.religion;
+      s.familyPlan = formData.familyPlan;
+      s.race = formData.race;
     });
-    console.log('SUBMITTED', data);
+    console.log('SUBMITTED', formData);
   };
 
   return (
@@ -68,12 +70,7 @@ export const ProfileDetails = () => {
           control={control}
           rules={{}}
           render={({ field: { onChange, onBlur, value } }) => (
-            <Inputbox
-              placeholder='Language Spoken'
-              onChange={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
+            <Dropdown data={data} />
           )}
         />
 
@@ -121,7 +118,15 @@ export const ProfileDetails = () => {
 
         <TouchableHighlight onPress={handleSubmit(onSubmit)}>
           <S.ContinueBtn>
-            <S.Continue style={{ fontFamily: 'JockeyOne_400Regular' }}>
+            <S.Continue
+              style={{ fontFamily: 'JockeyOne_400Regular' }}
+              onPress={() => {
+                formStore.update((s) => {
+                  s.page += 1;
+                });
+                console.log(formStore);
+              }}
+            >
               Continue
             </S.Continue>
           </S.ContinueBtn>

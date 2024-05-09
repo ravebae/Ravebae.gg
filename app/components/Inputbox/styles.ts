@@ -5,10 +5,10 @@ import styled from 'styled-components/native';
 const InputBox = styled(TextInput).attrs({
   placeholderTextColor: '#FFF',
 })`
-  border: 2px solid #a94bf3;
-  border-radius: 5px;
-  padding: 10px;
-  height: 50px;
+  border: 1px solid #a94bf3;
+  border-radius: 10px;
+  padding: 12px;
+  height: 55zpx;
   background: #000000;
   color: #fff;
 `;

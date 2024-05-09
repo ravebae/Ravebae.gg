@@ -21,9 +21,9 @@ export const SetLocation = ({ navigation }) => {
 
   return (
     <S.ProfileContainer>
-      <S.Title>Set Your Location</S.Title>
+      <S.Title style={{ fontFamily: 'JockeyOne_400Regular' }}>Set Your Location</S.Title>
       <S.FormWrapper>
-        <Text style={{ color: '#fff', fontSize: 16, marginBottom: 20 }}>
+        <Text style={{ color: '#fff', fontSize: 16, marginBottom: 20, fontFamily: 'JockeyOne_400Regular' }}>
           WHERE ALL THE RAVEBAES AT?
         </Text>
         <Controller
@@ -38,15 +38,25 @@ export const SetLocation = ({ navigation }) => {
                 backgroundColor: '#fff',
                 color: '#000',
                 marginBottom: 20,
+                fontFamily: 'JockeyOne_400Regular'  
               }}
             />
           )}
         />
-        <TouchableHighlight
-          onPress={handleSubmit(onSubmit)}
-          style={S.ContinueBtn}
-        >
-          <S.Continue>Continue</S.Continue>
+         <TouchableHighlight onPress={handleSubmit(onSubmit)}>
+          <S.ContinueBtn>
+            <S.Continue
+              style={{ fontFamily: 'JockeyOne_400Regular' }}
+              onPress={() => {
+                formStore.update((s) => {
+                  s.page += 1;
+                });
+                console.log(formStore);
+              }}
+            >
+              Continue
+            </S.Continue>
+          </S.ContinueBtn>
         </TouchableHighlight>
       </S.FormWrapper>
     </S.ProfileContainer>

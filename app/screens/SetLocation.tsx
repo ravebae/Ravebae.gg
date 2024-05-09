@@ -1,9 +1,14 @@
 import React from 'react';
 import { Button, TouchableHighlight, Text } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
 import { Controller, useForm } from 'react-hook-form';
 import S from './styles';
+import Dropdown from '@components/Dropdown';
 
+const locationData = [
+  { label: 'Sydney', value: 'Sydney' },
+  { label: 'Melbourne', value: 'Melbourne' },
+  { label: 'Brisbane', value: 'Brisbane' },
+];
 
 export const SetLocation = ({ navigation }) => {
   const { control, handleSubmit } = useForm({
@@ -25,7 +30,8 @@ export const SetLocation = ({ navigation }) => {
           name='location'
           control={control}
           render={({ field: { onChange, value } }) => (
-            <Picker
+            <Dropdown
+              data={locationData}
               selectedValue={value}
               onValueChange={onChange}
               style={{
@@ -33,11 +39,7 @@ export const SetLocation = ({ navigation }) => {
                 color: '#000',
                 marginBottom: 20,
               }}
-            >
-              <Picker.Item label='Sydney' value='Sydney' />
-              <Picker.Item label='Melbourne' value='Melbourne' />
-              <Picker.Item label='Brisbane' value='Brisbane' />
-            </Picker>
+            />
           )}
         />
         <TouchableHighlight

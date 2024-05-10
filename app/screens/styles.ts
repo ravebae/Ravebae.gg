@@ -13,12 +13,21 @@ const FormWrapper = styled(SafeAreaView)`
   height: 100%;
   flex-direction: column;
   gap: 20px;
+  
+`;
+
+const TextWrapper = styled(View)`
+  align-items: center; // Center content horizontally
+  justify-content: center; // Center content vertically
+  width: 100%; // Take full width to center align properly
+  margin: 20px 0; 
 `;
 
 const Title = styled(Text)`
   font-size: 30px;
   color: #fff;
   margin-bottom: 40px;
+  padding: 10px 50px;
 `;
 
 const ContinueBtn = styled(View)`

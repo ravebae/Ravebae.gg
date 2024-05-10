@@ -21,11 +21,18 @@ export const SetLocation = ({ navigation }) => {
   
     return (
       <S.ProfileContainer>
-        <S.Title style={{ fontFamily: 'JockeyOne_400Regular' }}>Set Your Location</S.Title>
+        <S.Title style={{ fontFamily: 'JockeyOne_400Regular', fontSize: 30, }}>Set Your Location</S.Title>
         <S.FormWrapper>
-          <Text style={{ color: '#fff', fontSize: 16, marginBottom: 20, fontFamily: 'JockeyOne_400Regular' }}>
-            WHERE ALL THE RAVEBAES AT?
-          </Text>
+        <Text style={{
+            color: '#fff',
+            fontSize: 30,
+            marginBottom: 20,
+            fontFamily: 'JockeyOne_400Regular',
+            textAlign: 'center', // Center text horizontally
+            alignSelf: 'center' // Center text within its flex container if it's not filling the full width
+        }}>
+  WHERE ALL THE RAVEBAES AT?
+</Text>
           <Controller
             name='location'
             control={control}
@@ -44,9 +51,9 @@ export const SetLocation = ({ navigation }) => {
             )}
           />
           <Image
-            src={'../assets/location_person.png'} // Adjust path as necessary
-            style={{ width: '100%', height: 200, marginBottom: 20 }} // Adjust styling as necessary
-          />
+                source={require('location_person.png')} // Include the file extension .png
+                style={{ width: '100%', height: 200, marginBottom: 20 }}
+            />
           <TouchableHighlight onPress={handleSubmit(onSubmit)}>
             <S.ContinueBtn>
               <S.Continue style={{ fontFamily: 'JockeyOne_400Regular' }}>Continue</S.Continue>

@@ -28,21 +28,22 @@ const ScrollContainer = styled(ScrollView)`
   flex: 1;
 `;
 
-const ProfileContainer = styled(KeyboardAvoidingView)`
-  padding: 60px 30px;
+const ProfileContainer = styled(View)`
+  padding: 80px 30px;
   height: 100%;
   overflow-y: scroll;
+  flex-grow: 0;
 `;
 
 const PreviousBtn = styled(TouchableOpacity)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  padding: 12px;
+  width: 45px;
+  height: 45px;
+  padding: 5px;
   border: 1px solid white;
-  border-radius: 12px;
+  border-radius: 10px;
   background-color: #031013;
 `;
 
@@ -81,8 +82,6 @@ const ContinueBtn = styled(View)`
 
 const ComponentWrapper = styled(View)`
   margin: 10px 0px;
-  height: 100%;
-  flex: 1;
 `;
 
 const CategoryContainer = styled(View)`

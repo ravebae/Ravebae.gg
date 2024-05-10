@@ -20,7 +20,11 @@ function InsideLayout() {
     <InsideStack.Navigator>
       <InsideStack.Screen name='My profile' component={List} />
       <InsideStack.Screen name='details' component={Details} />
-      <InsideStack.Screen name='step' component={ProfileDetails} />
+      <InsideStack.Screen
+        name='step'
+        component={ProfileDetails}
+        options={{ headerShown: false }}
+      />
     </InsideStack.Navigator>
   );
 }

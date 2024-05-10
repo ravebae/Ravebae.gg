@@ -6,6 +6,8 @@ export const formStore = new Store({
   languageSpoken: '',
   religion: '',
   familyPlan: '',
+  relationship: '',
   race: '',
+  email: '',
   page: 0,
 });

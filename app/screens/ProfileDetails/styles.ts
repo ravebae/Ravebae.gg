@@ -58,6 +58,25 @@ const PreviousBtn = styled(TouchableOpacity)`
   background-color: #031013;
 `;
 
+const ProfileContainer = styled(View)`
+  padding: 80px 30px;
+  height: 100%;
+  overflow-y: scroll;
+  flex-grow: 0;
+`;
+
+const PreviousBtn = styled(TouchableOpacity)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: #031013;
+`;
+
 const FormWrapper = styled(SafeAreaView)`
   padding: 0px 20px;
   display: flex;
@@ -95,6 +114,36 @@ const ComponentWrapper = styled(View)`
   margin: 10px 0px;
   height: 100%;
   flex: 1;
+`;
+
+const CategoryContainer = styled(View)`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+`;
+
+const StepRow = styled(View)`
+  width: 100%;
+  height: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 10px;
+`;
+
+const Step = styled(View)`
+  height: 5px;
+  max-width: 30px;
+  min-width: 18px;
+  border-radius: 30px;
+`;
+
+const ComponentWrapper = styled(View)`
+  margin: 10px 0px;
 `;
 
 const CategoryContainer = styled(View)`

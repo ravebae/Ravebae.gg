@@ -29,6 +29,7 @@ const stepList = {
   name: 'What is your name?',
   gender: 'What is your gender?',
   birthday: 'When is your birthday?',
+  email: 'What is your email?',
   language: 'What language(s) do you speak?',
   race: 'What is your race?',
   relationship: 'Relationship intention?',
@@ -66,19 +67,7 @@ export const ProfileDetails = ({ navigation }) => {
     formStore.update((s) => {
       s.page += 1;
     });
-  };
-
-  useEffect(() => {}, [formStore]);
-  const componentList: any = {
-    name,
-    gender,
-    birthday,
-    language,
-    race,
-    relationship,
-    interest,
-    media,
-    location,
+    useEffect(() => {}, [formStore]);
   };
 
   const key = Object.keys(stepList)[page];

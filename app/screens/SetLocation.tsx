@@ -44,7 +44,7 @@ export const SetLocation = ({ navigation }) => {
             )}
           />
           <Image
-            source={require('../assets/location_person.png')} // Adjust path as necessary
+            src={'../assets/location_person.png'} // Adjust path as necessary
             style={{ width: '100%', height: 200, marginBottom: 20 }} // Adjust styling as necessary
           />
           <TouchableHighlight onPress={handleSubmit(onSubmit)}>

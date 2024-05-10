@@ -7,14 +7,11 @@ import Dropdown from '@components/Dropdown';
 import { formStore } from 'store';
 
 import languages from 'app/helper/languages.json';
-import { RNMultiSelect } from 'rn-multipicker';
 
 const Language = () => {
   const { register, control, handleSubmit } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
-
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const handleContinue = () => {
     formStore.update((s) => {
@@ -29,14 +26,25 @@ const Language = () => {
         control={control}
         rules={{}}
         render={({ field: { onChange, onBlur, value } }) => (
-          <RNMultiSelect
-            placeholder='Languages'
-            data={['English', 'Chinese']}
-            onSelectedItemsChange={(value) => setSelectedItems(value)}
-            selectedItems={selectedItems}
-          />
+          <Dropdown data={languages} multiple={true} />
         )}
       />
+
+      <TouchableHighlight onPress={handleContinue}>
+        <S.ContinueBtn>
+          <S.Continue
+            style={{ fontFamily: 'JockeyOne_400Regular' }}
+            onPress={() => {
+              formStore.update((s) => {
+                s.page += 1;
+              });
+              console.log(formStore);
+            }}
+          >
+            Continue
+          </S.Continue>
+        </S.ContinueBtn>
+      </TouchableHighlight>
     </S.FormWrapper>
   );
 };

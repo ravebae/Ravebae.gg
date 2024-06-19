@@ -21,6 +21,12 @@ const EmailContainer = styled(View)`
   overflow-y: scroll;
 `;
 
+const ViewContainer = styled(View)`
+  flex: 1;
+  height: 100%;
+  position: relative;
+`;
+
 const ScrollContainer = styled(ScrollView)`
   height: 100%;
   background-color: #081e23;
@@ -29,21 +35,20 @@ const ScrollContainer = styled(ScrollView)`
 `;
 
 const ProfileContainer = styled(View)`
-  padding: 80px 30px;
+  padding: 60px 30px;
   height: 100%;
   overflow-y: scroll;
-  flex-grow: 0;
 `;
 
 const PreviousBtn = styled(TouchableOpacity)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   padding: 5px;
   border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: #031013;
 `;
 
@@ -82,6 +87,8 @@ const ContinueBtn = styled(View)`
 
 const ComponentWrapper = styled(View)`
   margin: 10px 0px;
+  height: 100%;
+  flex: 1;
 `;
 
 const CategoryContainer = styled(View)`

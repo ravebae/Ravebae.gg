@@ -36,7 +36,6 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "^15.6.0",
     "react-native-vector-icons": "^10.1.0",
-    "rn-multipicker": "^0.3.3",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

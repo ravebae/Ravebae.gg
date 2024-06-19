@@ -20,7 +20,7 @@ const Name = ({ navigation }) => {
   };
 
   return (
-    <S.FormWrapper>
+    <>
       <Controller
         name='firstName'
         control={control}
@@ -47,22 +47,7 @@ const Name = ({ navigation }) => {
           />
         )}
       />
-      <TouchableHighlight onPress={handleContinue}>
-        <S.ContinueBtn>
-          <S.Continue
-            style={{ fontFamily: 'JockeyOne_400Regular' }}
-            onPress={() => {
-              formStore.update((s) => {
-                s.page += 1;
-              });
-              console.log(formStore);
-            }}
-          >
-            Continue
-          </S.Continue>
-        </S.ContinueBtn>
-      </TouchableHighlight>
-    </S.FormWrapper>
+    </>
   );
 };
 

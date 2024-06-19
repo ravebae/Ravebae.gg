@@ -27,7 +27,7 @@ export default function Dropdown({ data, placeholder = '', multiple = true }) {
           badgeStyles={{ backgroundColor: '#a94bf3' }}
           dropdownShown={false}
           search={false}
-          maxHeight={300}
+          maxHeight={200}
           save='value'
           label='Languages'
           labelStyles={{ color: 'white' }}

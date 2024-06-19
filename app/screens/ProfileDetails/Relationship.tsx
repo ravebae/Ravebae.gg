@@ -35,21 +35,6 @@ const Relationship = () => {
           <Dropdown data={relationshipStatus} />
         )}
       />
-      <TouchableHighlight onPress={handleContinue}>
-        <S.ContinueBtn>
-          <S.Continue
-            style={{ fontFamily: 'JockeyOne_400Regular' }}
-            onPress={() => {
-              formStore.update((s) => {
-                s.page += 1;
-              });
-              console.log(formStore);
-            }}
-          >
-            Continue
-          </S.Continue>
-        </S.ContinueBtn>
-      </TouchableHighlight>
     </S.FormWrapper>
   );
 };

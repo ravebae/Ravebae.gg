@@ -12,14 +12,8 @@ const Email = () => {
     defaultValues: formStore.useState((s) => s),
   });
 
-  const handleContinue = () => {
-    formStore.update((s) => {
-      s.page += 1;
-    });
-  };
-
   return (
-    <S.FormWrapper>
+    <>
       <Controller
         name='email'
         control={control}
@@ -33,22 +27,7 @@ const Email = () => {
           />
         )}
       />
-      <TouchableHighlight onPress={handleContinue}>
-        <S.ContinueBtn>
-          <S.Continue
-            style={{ fontFamily: 'JockeyOne_400Regular' }}
-            onPress={() => {
-              formStore.update((s) => {
-                s.page += 1;
-              });
-              console.log(formStore);
-            }}
-          >
-            Continue
-          </S.Continue>
-        </S.ContinueBtn>
-      </TouchableHighlight>
-    </S.FormWrapper>
+    </>
   );
 };
 

@@ -37,18 +37,12 @@ const raceList = [
 ];
 
 const Race = () => {
-  const { register, control, handleSubmit } = useForm({
+  const { control } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
 
-  const handleContinue = () => {
-    formStore.update((s) => {
-      s.page += 1;
-    });
-  };
-
   return (
-    <S.FormWrapper>
+    <>
       <Controller
         name='race'
         control={control}
@@ -57,22 +51,7 @@ const Race = () => {
           <Dropdown data={raceList} />
         )}
       />
-      <TouchableHighlight onPress={handleContinue}>
-        <S.ContinueBtn>
-          <S.Continue
-            style={{ fontFamily: 'JockeyOne_400Regular' }}
-            onPress={() => {
-              formStore.update((s) => {
-                s.page += 1;
-              });
-              console.log(formStore);
-            }}
-          >
-            Continue
-          </S.Continue>
-        </S.ContinueBtn>
-      </TouchableHighlight>
-    </S.FormWrapper>
+    </>
   );
 };
 

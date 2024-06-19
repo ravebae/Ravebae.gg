@@ -3,48 +3,60 @@ import {
   Text,
   SafeAreaView,
   View,
-  Button,
   TouchableOpacity,
   ScrollView,
-  StatusBar,
 } from 'react-native';
+
+const ViewContainer = styled(View)`
+  flex: 1;
+  height: 100%;
+  position: relative;
+`;
 
 const ScrollContainer = styled(ScrollView)`
   height: 100%;
   background-color: #081e23;
+  position: relative;
+  flex: 1;
 `;
 
 const ProfileContainer = styled(View)`
-  padding: 80px 30px;
+  padding: 60px 30px;
   height: 100%;
   overflow-y: scroll;
-  flex-grow: 0;
 `;
 
 const PreviousBtn = styled(TouchableOpacity)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   padding: 5px;
   border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: #031013;
 `;
 
 const FormWrapper = styled(SafeAreaView)`
-  padding: 0px 10px;
+  padding: 0px 20px;
   display: flex;
   height: 100%;
   flex-direction: column;
+  position: relative;
   gap: 20px;
+  flex: 1;
 `;
 
 const Title = styled(Text)`
-  font-size: 30px;
+  font-size: 24px;
   color: #fff;
-  margin-bottom: 5px;
+`;
+
+const Question = styled(Text)`
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 30px;
 `;
 
 const ContinueBtn = styled(View)`
@@ -55,11 +67,14 @@ const ContinueBtn = styled(View)`
   color: #fff;
   font-weight: 800;
   display: flex;
+  width: 100%;
   align-items: center;
 `;
 
 const ComponentWrapper = styled(View)`
   margin: 10px 0px;
+  height: 100%;
+  flex: 1;
 `;
 
 const CategoryContainer = styled(View)`
@@ -101,9 +116,11 @@ export default {
   ContinueBtn,
   PreviousBtn,
   ProfileContainer,
+  Question,
   FormWrapper,
   Title,
   StepRow,
   Step,
   ScrollContainer,
+  ViewContainer,
 };

@@ -1,5 +1,4 @@
 import { Controller, useForm } from 'react-hook-form';
-import data from '../../helper/languages.json';
 
 import S from './styles';
 import {
@@ -9,16 +8,15 @@ import {
   TextInput,
   TouchableHighlight,
   View,
+  Image,
 } from 'react-native';
 import React, { useEffect } from 'react';
 import { formStore } from 'store';
-import Inputbox from '@components/Inputbox';
-import Dropdown from '@components/Dropdown';
 
 import name from './Name';
-import gender from './Name';
+import gender from './Gender';
 import birthday from './Name';
-import email from './Name';
+import email from './Email';
 import language from './Language';
 import race from './Race';
 import relationship from './Relationship';
@@ -63,6 +61,13 @@ export const ProfileDetails = ({ navigation }) => {
     console.log('SUBMITTED', formData);
   };
 
+  const handleContinue = () => {
+    // navigation.navigate('details');
+    formStore.update((s) => {
+      s.page += 1;
+    });
+  };
+
   useEffect(() => {}, [formStore]);
   const componentList: any = {
     name,
@@ -86,140 +91,78 @@ export const ProfileDetails = ({ navigation }) => {
     RenderComponent = render;
   }
   return (
-    <S.ScrollContainer>
-      <S.ProfileContainer>
-        <S.PreviousBtn
-          onPress={() => {
-            if (page === 0) {
-              navigation.goBack();
-            } else {
-              formStore.update((s) => {
-                s.page -= 1;
-              });
-            }
-          }}
-        />
-        <S.CategoryContainer>
-          <S.Title style={{ fontFamily: 'JockeyOne_400Regular' }}>
-            {page + 1}. {key.toLocaleUpperCase()}
-          </S.Title>
-          <S.StepRow>
-            {Object.keys(stepList).map((step, idx) => {
-              return (
-                <S.Step
-                  key={idx}
-                  style={{
-                    backgroundColor:
-                      `${idx}` === `${page}` ? '#A94BF3' : '#D9D9D9',
-                  }}
-                />
-              );
-            })}
-          </S.StepRow>
-        </S.CategoryContainer>
-
-        {/* <S.FormWrapper>
-        <Controller
-          name='firstName'
-          control={control}
-          rules={{}}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Inputbox
-              placeholder='First name'
-              onChange={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          name='lastName'
-          control={control}
-          rules={{}}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Inputbox
-              placeholder='Last name'
-              onChange={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-
-        <Controller
-          name='languageSpoken'
-          control={control}
-          rules={{}}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Dropdown data={data} />
-          )}
-        />
-
-        <Controller
-          name='religion'
-          control={control}
-          rules={{}}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Inputbox
-              placeholder='Religion'
-              onChange={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-
-        <Controller
-          name='familyPlan'
-          control={control}
-          rules={{}}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Inputbox
-              placeholder='Family Plan'
-              onChange={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-
-        <Controller
-          name='race'
-          control={control}
-          rules={{}}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Inputbox
-              placeholder='Race'
-              onChange={onChange}
-              onBlur={onBlur}
-              value={value}
-            />
-          )}
-        />
-
-        <TouchableHighlight onPress={handleSubmit(onSubmit)}>
-          <S.ContinueBtn>
-            <S.Continue
-              style={{ fontFamily: 'JockeyOne_400Regular' }}
-              onPress={() => {
+    <S.ViewContainer>
+      <S.ScrollContainer
+        nestedScrollEnabled={true}
+        contentContainerStyle={{ flexGrow: 1 }}
+      >
+        <S.ProfileContainer>
+          <S.PreviousBtn
+            onPress={() => {
+              if (page === 0) {
+                navigation.goBack();
+              } else {
                 formStore.update((s) => {
-                  s.page += 1;
+                  s.page -= 1;
                 });
-                console.log(formStore);
-              }}
-            >
-              Continue
-            </S.Continue>
-          </S.ContinueBtn>
-        </TouchableHighlight>
-      </S.FormWrapper> */}
-        <S.Title style={{ fontFamily: 'JockeyOne_400Regular' }}>
-          {title}
-        </S.Title>
-        <S.ComponentWrapper>
-          {render ? <RenderComponent /> : null}
-        </S.ComponentWrapper>
-      </S.ProfileContainer>
-    </S.ScrollContainer>
+              }
+            }}
+          >
+            <Image src='assets/back.svg' />
+          </S.PreviousBtn>
+          <S.CategoryContainer>
+            <S.Title style={{ fontFamily: 'JockeyOne_400Regular' }}>
+              {key.toLocaleUpperCase()}
+            </S.Title>
+            <S.StepRow>
+              {Object.keys(stepList).map((step, idx) => {
+                return (
+                  <S.Step
+                    key={idx}
+                    style={{
+                      backgroundColor:
+                        `${idx}` === `${page}` ? '#A94BF3' : '#D9D9D9',
+                    }}
+                  />
+                );
+              })}
+            </S.StepRow>
+          </S.CategoryContainer>
+          <S.ComponentWrapper style={{ flex: 1, flexGrow: 1 }}>
+            <S.FormWrapper>
+              <S.Question style={{ fontFamily: 'JockeyOne_400Regular' }}>
+                {title}
+              </S.Question>
+              {render ? <RenderComponent /> : null}
+              <TouchableHighlight
+                onPress={handleContinue}
+                style={{
+                  position: 'absolute',
+                  flex: 1,
+                  bottom: 0,
+                  left: 20,
+                  width: '100%',
+                }}
+                activeOpacity={1}
+              >
+                <S.ContinueBtn>
+                  <S.Continue
+                    style={{ fontFamily: 'JockeyOne_400Regular' }}
+                    onPress={() => {
+                      formStore.update((s) => {
+                        s.page += 1;
+                      });
+                      console.log(formStore);
+                    }}
+                  >
+                    Continue
+                  </S.Continue>
+                </S.ContinueBtn>
+              </TouchableHighlight>
+            </S.FormWrapper>
+          </S.ComponentWrapper>
+        </S.ProfileContainer>
+      </S.ScrollContainer>
+    </S.ViewContainer>
   );
 };

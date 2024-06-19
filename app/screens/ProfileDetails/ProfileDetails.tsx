@@ -16,6 +16,7 @@ import { formStore } from 'store';
 import name from './Name';
 import gender from './Gender';
 import birthday from './Birthday';
+import email from './Email';
 import language from './Language';
 import race from './Race';
 import relationship from './Relationship';
@@ -67,7 +68,20 @@ export const ProfileDetails = ({ navigation }) => {
     formStore.update((s) => {
       s.page += 1;
     });
-    useEffect(() => {}, [formStore]);
+  };
+
+  useEffect(() => {}, [formStore]);
+  const componentList: any = {
+    name,
+    gender,
+    birthday,
+    email,
+    language,
+    race,
+    relationship,
+    interest,
+    media,
+    location,
   };
 
   const key = Object.keys(stepList)[page];
@@ -108,7 +122,7 @@ export const ProfileDetails = ({ navigation }) => {
               }
             }}
           >
-            <Back />
+            <Image src='assets/back.svg' />
           </S.PreviousBtn>
           <S.CategoryContainer>
             <S.Title style={{ fontFamily: 'JockeyOne_400Regular' }}>
@@ -130,43 +144,35 @@ export const ProfileDetails = ({ navigation }) => {
           </S.CategoryContainer>
           <S.ComponentWrapper style={{ flex: 1, flexGrow: 1 }}>
             <S.FormWrapper>
-              <S.Question
-                style={{ fontFamily: 'JockeyOne_400Regular' }}
-                state={animationState}
-                exit={{ left: -300 }}
-                transition={{
-                  type: 'spring',
-                  delay: 50,
-                }}
-              >
+              <S.Question style={{ fontFamily: 'JockeyOne_400Regular' }}>
                 {title}
               </S.Question>
               {render ? <RenderComponent /> : null}
-
-              <View style={{ flex: 1, paddingTop: 50, position: 'relative' }}>
-                <TouchableHighlight
-                  onPress={handleContinue}
-                  style={{
-                    width: '100%',
-                    position: 'absolute',
-                    bottom: 0,
-                  }}
-                  activeOpacity={1}
-                >
-                  <S.ContinueBtn>
-                    <S.Continue
-                      onPress={() => {
-                        formStore.update((s) => {
-                          s.page += 1;
-                        });
-                        console.log(formStore);
-                      }}
-                    >
-                      Continue
-                    </S.Continue>
-                  </S.ContinueBtn>
-                </TouchableHighlight>
-              </View>
+              <TouchableHighlight
+                onPress={handleContinue}
+                style={{
+                  position: 'absolute',
+                  flex: 1,
+                  bottom: 0,
+                  left: 20,
+                  width: '100%',
+                }}
+                activeOpacity={1}
+              >
+                <S.ContinueBtn>
+                  <S.Continue
+                    style={{ fontFamily: 'JockeyOne_400Regular' }}
+                    onPress={() => {
+                      formStore.update((s) => {
+                        s.page += 1;
+                      });
+                      console.log(formStore);
+                    }}
+                  >
+                    Continue
+                  </S.Continue>
+                </S.ContinueBtn>
+              </TouchableHighlight>
             </S.FormWrapper>
           </S.ComponentWrapper>
         </S.ProfileContainer>

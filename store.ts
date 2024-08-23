@@ -9,5 +9,6 @@ export const formStore = new Store({
   relationship: '',
   race: '',
   email: '',
+  birthday: '',
   page: 0,
 });

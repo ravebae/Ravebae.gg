@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
-import Dropdown from '@components/Dropdown';
+import DropdownEl from '@components/Dropdown';
 import { formStore } from 'store';
 
 const genderList = [
-  { key: 'Male', value: 'Male' },
-  { key: 'Female', value: 'Female' },
-  { key: 'Non-binary', value: 'Non-binary' },
+  { label: 'Male', value: '1' },
+  { label: 'Female', value: '2' },
+  { label: 'Non-binary', value: '3' },
 ];
 
 const Gender = () => {
@@ -22,7 +22,11 @@ const Gender = () => {
         control={control}
         rules={{}}
         render={({ field: { onChange, onBlur, value } }) => (
-          <Dropdown data={genderList} />
+          <DropdownEl
+            placeholder={'Gender'}
+            data={genderList}
+            multiple={false}
+          />
         )}
       />
     </>

@@ -15,6 +15,10 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
+import {
+  Poppins_600SemiBold,
+  Poppins_400Regular,
+} from '@expo-google-fonts/poppins';
 import { RouterProps } from './List';
 import Logo from '@components/Logo';
 
@@ -25,6 +29,8 @@ const Login = ({ navigation }: RouterProps) => {
 
   const [fontsLoaded] = useFonts({
     JockeyOne_400Regular,
+    Poppins_400Regular,
+    Poppins_600SemiBold,
   });
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;

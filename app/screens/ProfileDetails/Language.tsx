@@ -5,6 +5,7 @@ import Dropdown from '@components/Dropdown';
 import { formStore } from 'store';
 
 import languages from 'app/helper/languages.json';
+import { RNMultiSelect } from 'rn-multipicker';
 
 const Language = () => {
   const { control } = useForm({

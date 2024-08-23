@@ -27,6 +27,12 @@ const ViewContainer = styled(View)`
   position: relative;
 `;
 
+const EmailContainer = styled(View)`
+  padding: 150px 30px;
+  height: 100%;
+  overflow-y: scroll;
+`;
+
 const ScrollContainer = styled(ScrollView)`
   height: 100%;
   background-color: #081e23;
@@ -34,7 +40,7 @@ const ScrollContainer = styled(ScrollView)`
   flex: 1;
 `;
 
-const ProfileContainer = styled(View)`
+const ProfileContainer = styled(KeyboardAvoidingView)`
   padding: 60px 30px;
   height: 100%;
   overflow-y: scroll;
@@ -46,7 +52,7 @@ const PreviousBtn = styled(TouchableOpacity)`
   justify-content: center;
   width: 48px;
   height: 48px;
-  padding: 5px;
+  padding: 12px;
   border: 1px solid white;
   border-radius: 12px;
   background-color: #031013;

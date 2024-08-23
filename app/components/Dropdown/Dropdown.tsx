@@ -1,12 +1,36 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import React, { useState } from 'react';
 import DropdownArrow from 'assets/dropdown.svg';
+
 import { SelectList } from 'react-native-dropdown-select-list';
 import { MultipleSelectList } from 'react-native-dropdown-select-list';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Arrow from './Arrow/Arrow';
+
+import S from './styles';
 
 export default function Dropdown({ data, placeholder = '', multiple = true }) {
   const [selected, setSelected] = useState([]);
+  const [value, setValue] = useState(null);
+  const [isFocus, setIsFocus] = useState(false);
+
+  const renderItem = (item) => {
+    return (
+      <View style={styles.item}>
+        <Text style={styles.textItem}>{item.label}</Text>
+        {item.value === value && (
+          <MaterialIcons name='done' color='#a94bf3' size={20} />
+        )}
+      </View>
+    );
+  };
+
+  const renderLabel = (
+    <S.InputLabelBG colors={['#081E23', '#081E23', '#031013']}>
+      <S.InputLabel>{placeholder}</S.InputLabel>
+    </S.InputLabelBG>
+  );
+
   return (
     <>
       {multiple ? (

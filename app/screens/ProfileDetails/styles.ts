@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  KeyboardAvoidingView,
 } from 'react-native';
 import { MotiText } from 'moti';
 
@@ -20,12 +21,6 @@ const EmailContainer = styled(View)`
   overflow-y: scroll;
 `;
 
-const ViewContainer = styled(View)`
-  flex: 1;
-  height: 100%;
-  position: relative;
-`;
-
 const ScrollContainer = styled(ScrollView)`
   height: 100%;
   background-color: #081e23;
@@ -33,7 +28,7 @@ const ScrollContainer = styled(ScrollView)`
   flex: 1;
 `;
 
-const ProfileContainer = styled(View)`
+const ProfileContainer = styled(KeyboardAvoidingView)`
   padding: 60px 30px;
   height: 100%;
   overflow-y: scroll;
@@ -45,7 +40,7 @@ const PreviousBtn = styled(TouchableOpacity)`
   justify-content: center;
   width: 48px;
   height: 48px;
-  padding: 5px;
+  padding: 12px;
   border: 1px solid white;
   border-radius: 12px;
   background-color: #031013;
@@ -66,7 +61,7 @@ const Title = styled(Text)`
   color: #fff;
 `;
 
-const Question = styled(Text)`
+const Question = styled(MotiText)`
   font-size: 28px;
   color: #fff;
   margin-bottom: 30px;

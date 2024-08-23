@@ -1,4 +1,6 @@
 import React from 'react';
+import 'react-native-reanimated';
+import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
@@ -11,6 +13,8 @@ import { User, onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './firebaseConfig';
 import Register from './app/screens/Register';
 import { ProfileDetails } from './app/screens/ProfileDetails/ProfileDetails';
+import { CardStyleInterpolators } from '@react-navigation/stack';
+import Verification from '@src/screens/Verification';
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -22,6 +26,11 @@ function InsideLayout() {
       <InsideStack.Screen name='details' component={Details} />
       <InsideStack.Screen
         name='step'
+        component={Verification}
+        options={{ headerShown: false }}
+      />
+      <InsideStack.Screen
+        name='test'
         component={ProfileDetails}
         options={{ headerShown: false }}
       />

@@ -7,20 +7,19 @@ import Inputbox from '@components/Inputbox';
 import Dropdown from '@components/Dropdown';
 import { formStore } from 'store';
 
+import { MotiSafeAreaView, MotiView } from 'moti';
+
 const Name = ({ navigation }) => {
   const { register, control, handleSubmit } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
 
-  const handleContinue = () => {
-    // navigation.navigate('details');
-    formStore.update((s) => {
-      s.page += 1;
-    });
-  };
-
   return (
-    <>
+    <MotiSafeAreaView
+      from={{ opacity: 0, left: 100 }}
+      animate={{ opacity: 1, left: 0 }}
+      transition={{ type: 'timing' }}
+    >
       <Controller
         name='firstName'
         control={control}
@@ -47,7 +46,7 @@ const Name = ({ navigation }) => {
           />
         )}
       />
-    </>
+    </MotiSafeAreaView>
   );
 };
 

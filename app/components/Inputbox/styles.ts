@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 const InputLabelBG = styled(LinearGradient)`
   position: absolute;
   top: -12px;
-  left: 20px;
+  left: 10px;
   z-index: 1;
 `;
 
@@ -18,14 +18,14 @@ const InputLabel = styled.Text`
 `;
 
 const InputBox = styled(TextInput).attrs({
-  placeholderTextColor: '#FFF',
+  placeholderTextColor: '#736D78',
 })`
-  border: 1px solid #a94bf3;
+  border: 1px solid #736d78;
   border-radius: 5px;
   padding: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   font-size: 20px;
-  height: 55zpx;
+  height: 50px;
   background: #031013;
   position: relative;
   color: #fff;

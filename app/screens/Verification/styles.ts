@@ -15,10 +15,19 @@ const ViewContainer = styled(View)`
   position: relative;
 `;
 
-const EmailContainer = styled(View)`
+const VerificationContainer = styled(View)`
   padding: 150px 30px;
   height: 100%;
+  flex: 1;
   overflow-y: scroll;
+  position: relative;
+`;
+
+const EmailContainer = styled(View)`
+  padding: 0px 15px;
+  flex: 1;
+  height: 100%;
+  position: relative;
 `;
 
 const ScrollContainer = styled(ScrollView)`
@@ -57,13 +66,23 @@ const FormWrapper = styled(SafeAreaView)`
 `;
 
 const Title = styled(Text)`
-  font-size: 24px;
+  font-size: 28px;
   color: #fff;
+  margin-bottom: 40px;
+`;
+
+const SubTitle = styled(MotiText)`
+  font-size: 16px;
+  color: #d1c3c3;
+  margin-bottom: 50px;
+  font-weight: 300;
+  font-family: 'JockeyOne_400Regular';
 `;
 
 const Question = styled(MotiText)`
   font-size: 28px;
   color: #fff;
+  margin-top: 20px;
   margin-bottom: 30px;
 `;
 
@@ -130,6 +149,8 @@ export default {
   Title,
   StepRow,
   Step,
+  SubTitle,
   ScrollContainer,
+  VerificationContainer,
   ViewContainer,
 };

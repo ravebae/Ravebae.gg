@@ -3,6 +3,11 @@ import { createTransport } from 'nodemailer';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import googleapis from 'googleapis';
+import handlebars from 'handlebars';
+import fs from 'fs';
+
+import { promisify } from 'util';
+const readFileAsync = promisify(fs.readFile);
 
 const app = express();
 const PORT = 5001;
@@ -65,14 +70,22 @@ app.listen(PORT, () => {
 app.post('/user/verify_email', async (req, res) => {
   // Get data from form
   console.log(req.params, req.body);
+  // Verify email
+  let email = req.body.email;
+  let code = req.body.code;
 
+  const htmlTemplate = await readFileAsync('./emailtemplate.html', 'utf-8');
+
+  let template = handlebars.compile(htmlTemplate);
+  let replacements = {
+    code,
+  };
+  let htmlToSend = template(replacements);
   const mail = {
     from: process.env.USER_EMAIL,
-    to: 'yamiremuru@gmail.com',
+    to: email,
     subject: 'Verify code',
-    html: `
-      <p>Your verification code: 123</p>
-    `,
+    html: htmlToSend,
   };
 
   let emailTransporter = await createTransporter();

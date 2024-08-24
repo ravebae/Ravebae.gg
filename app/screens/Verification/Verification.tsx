@@ -13,6 +13,7 @@ import {
   sendEmailVerification,
   sendSignInLinkToEmail,
 } from 'firebase/auth';
+import axios from 'axios';
 
 const Verification = ({ navigation }) => {
   const { register, control, handleSubmit, getValues } = useForm({
@@ -66,6 +67,7 @@ const Verification = ({ navigation }) => {
                 onPress={() => {
                   console.log('Verifying user');
                   const val = getValues();
+                  axios.post('localhost:5001/user/verify_email');
                   // createUserWithEmailAndPassword(auth, val.email, '123456')
                   //   .then(() => {
                   //     if (auth.currentUser) {

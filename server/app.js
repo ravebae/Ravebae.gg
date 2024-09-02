@@ -3,6 +3,7 @@ import { createTransport } from 'nodemailer';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import googleapis from 'googleapis';
+import ngrok from 'ngrok';
 import handlebars from 'handlebars';
 import fs from 'fs';
 
@@ -63,13 +64,13 @@ app.get('/', (req, res) => {
   res.send('Test');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log('Listening on Port:', PORT);
 });
 
 app.post('/user/verify_email', async (req, res) => {
   // Get data from form
-  console.log(req.params, req.body);
+  console.log('Received request', req.params, req.body);
   // Verify email
   let email = req.body.email;
   let code = req.body.code;

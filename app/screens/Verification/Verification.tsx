@@ -1,5 +1,5 @@
 import { View, Text, TouchableHighlight } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 
 import S from './styles';
 import { Controller, useForm, useWatch } from 'react-hook-form';
@@ -19,6 +19,9 @@ const Verification = ({ navigation }) => {
   const { register, control, handleSubmit, getValues } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
+
+  // Credit to Jon Randy dev.to/jonrandy
+  const generateToken = () => `${~~(Math.random() * 10e3)}`.padStart(4, '0');
 
   const auth = FIREBASE_AUTH;
   return (
@@ -57,50 +60,35 @@ const Verification = ({ navigation }) => {
             </MotiView>
           </S.EmailContainer>
           <TouchableHighlight
-            onPress={() => {
-              console.log('Press');
+            style={{ zIndex: 2 }}
+            onPress={async () => {
+              console.log('Pressed');
+              const val = getValues();
+
+              let data = {
+                email: val.email.toLocaleLowerCase(),
+                code: generateToken(),
+              };
+
+              console.log('POSTING!');
+              navigation.navigate('otp', { code: data.code });
+              await axios
+                .post(
+                  'https://92df-123-208-248-87.ngrok-free.app/user/verify_email', // Hosted on ngrok locally
+                  data
+                )
+                .then(() => {
+                  console.log('Posted email');
+                })
+                .catch((e) => {
+                  console.log('Error', e);
+                });
             }}
             activeOpacity={1}
+            delayPressIn={0}
           >
             <S.ContinueBtn>
-              <S.Continue
-                onPress={() => {
-                  console.log('Verifying user');
-                  const val = getValues();
-                  axios.post('localhost:5001/user/verify_email');
-                  // createUserWithEmailAndPassword(auth, val.email, '123456')
-                  //   .then(() => {
-                  //     if (auth.currentUser) {
-                  //       sendEmailVerification(auth.currentUser, {
-                  //         handleCodeInApp: true,
-                  //         url: 'https://ravebae-gg.firebaseapp.com',
-                  //       })
-                  //         .then(() => {
-                  //           alert('Verification email sent');
-                  //         })
-                  //         .catch((error) => alert(error.message));
-                  //     }
-                  //   })
-                  //   .catch((error) => alert(error.message));
-
-                  // Assume user creates account here first time
-                  if (auth.currentUser) {
-                    sendEmailVerification(auth.currentUser, {
-                      handleCodeInApp: true,
-                      url: 'https://ravebae-gg.firebaseapp.com',
-                    })
-                      .then(() => {
-                        alert('Verification email sent');
-                      })
-                      .catch((error) => alert(error.message));
-                  }
-
-                  navigation.navigate('test');
-                  console.log(formStore);
-                }}
-              >
-                Continue
-              </S.Continue>
+              <S.Continue>Continue</S.Continue>
             </S.ContinueBtn>
           </TouchableHighlight>
         </S.VerificationContainer>

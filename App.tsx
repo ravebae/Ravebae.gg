@@ -15,6 +15,7 @@ import Register from './app/screens/Register';
 import { ProfileDetails } from './app/screens/ProfileDetails/ProfileDetails';
 import { CardStyleInterpolators } from '@react-navigation/stack';
 import Verification from '@src/screens/Verification';
+import OTP from '@src/screens/Verification/OTP';
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -30,8 +31,13 @@ function InsideLayout() {
         options={{ headerShown: false }}
       />
       <InsideStack.Screen
-        name='test'
+        name='profile'
         component={ProfileDetails}
+        options={{ headerShown: false }}
+      />
+      <InsideStack.Screen
+        name='otp'
+        component={OTP}
         options={{ headerShown: false }}
       />
     </InsideStack.Navigator>

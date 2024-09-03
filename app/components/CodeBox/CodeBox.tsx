@@ -6,7 +6,6 @@ export default function CodeBox({ code, setVerified }) {
   const [otp, setOtp] = useState(['', '', '', '']);
 
   useEffect(() => {
-    console.log('Focusing');
     inputRefs.current[0]?.focus();
   }, []);
 

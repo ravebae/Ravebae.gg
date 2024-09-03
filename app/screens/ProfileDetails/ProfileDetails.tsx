@@ -59,6 +59,7 @@ export const ProfileDetails = ({ navigation }) => {
         s.page += 1;
       } else {
         console.log('Done');
+        navigation.navigate('explore');
       }
     });
   };

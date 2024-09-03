@@ -2,8 +2,8 @@ import { View, Image, Text, ScrollView } from 'react-native';
 import React from 'react';
 import S from './ProfileDetails/styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import ChineseGirl from './Images/ChineseGirl.jpeg';
-import Glasses from './Images/Glasses.jpeg';
+import ChineseGirl from 'assets/img/ChineseGirl.jpeg';
+import Glasses from 'assets/img/Glasses.jpeg';
 import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const PopularMatches = () => {

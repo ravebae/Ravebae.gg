@@ -17,7 +17,6 @@ const Verification = ({ navigation }) => {
   // Credit to Jon Randy dev.to/jonrandy
   const generateToken = () => `${~~(Math.random() * 10e3)}`.padStart(4, '0');
 
-  const auth = FIREBASE_AUTH;
   return (
     <S.ViewContainer>
       <S.ScrollContainer

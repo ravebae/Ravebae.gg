@@ -1,7 +1,7 @@
 import { View, Image, Text, ScrollView } from 'react-native';
 import React from 'react';
 import S from './ProfileDetails/styles';
-import VietGirl from './Images/VietGirl.jpeg';
+import VietGirl from 'assets/img/VietGirl.jpg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
@@ -25,7 +25,14 @@ const Explore = () => {
           paddingHorizontal: 20,
         }}
       >
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 100,
+          }}
+        >
           <S.Title
             style={{ fontFamily: 'JockeyOne_400Regular', marginRight: 20 }}
           >
@@ -35,7 +42,6 @@ const Explore = () => {
             name='dots-three-horizontal'
             size={35}
             color='#9656ce'
-            style={{ marginTop: -35 }}
           ></Entypo>
         </View>
         <View

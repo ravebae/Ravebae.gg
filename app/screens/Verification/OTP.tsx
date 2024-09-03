@@ -31,7 +31,9 @@ const OTP = ({ navigation, route: { params } }) => {
             activeOpacity={1}
           >
             <S.ContinueBtn>
-              <S.Continue onPress={() => {}}>Verify code</S.Continue>
+              <S.Continue onPress={() => {}}>
+                Resend verification code
+              </S.Continue>
             </S.ContinueBtn>
           </TouchableHighlight>
         </S.VerificationContainer>

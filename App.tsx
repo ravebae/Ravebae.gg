@@ -13,6 +13,7 @@ import Login from './app/screens/Login';
 import { ProfileDetails } from './app/screens/ProfileDetails/ProfileDetails';
 import Register from './app/screens/Register';
 import { FIREBASE_AUTH } from './firebaseConfig';
+import PopularMatches from '@src/screens/PopularMatches';
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -40,6 +41,11 @@ function InsideLayout() {
       <InsideStack.Screen
         name='explore'
         component={Explore}
+        options={{ headerShown: false }}
+      />
+      <InsideStack.Screen
+        name='matches'
+        component={PopularMatches}
         options={{ headerShown: false }}
       />
     </InsideStack.Navigator>

@@ -8,9 +8,15 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Arrow from './Arrow/Arrow';
 
 import S from './styles';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
-export default function Dropdown({ data, placeholder = '', multiple = true }) {
-  const [selected, setSelected] = useState([]);
+export default function Dropdown({
+  data,
+  placeholder = '',
+  multiple = true,
+  search = false,
+}) {
+  const [selected, setSelected] = useState<string[]>([]);
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -34,33 +40,35 @@ export default function Dropdown({ data, placeholder = '', multiple = true }) {
   return (
     <>
       {multiple ? (
-        <MultipleSelectList
-          setSelected={(val) => setSelected(val)}
-          data={data}
-          dropdownStyles={{
-            backgroundColor: '#766a81',
-            borderColor: '#a94bf3',
-            borderWidth: 1,
-            width: '100%',
-          }}
-          boxStyles={{
-            backgroundColor: '#031013',
-            borderColor: '#a94bf3',
-            borderWidth: 1,
-          }}
-          badgeStyles={{ backgroundColor: '#a94bf3' }}
-          dropdownShown={false}
-          search={false}
-          maxHeight={200}
-          save='value'
-          label='Languages'
-          labelStyles={{ color: 'white' }}
-          dropdownTextStyles={{
-            color: '#f9e0ff',
-          }}
-          checkBoxStyles={{ backgroundColor: 'white' }}
-          inputStyles={{ color: 'white', width: 100 }}
-        />
+        <View style={styles.container}>
+          {renderLabel}
+          <S.MultiDropdownList
+            style={[
+              styles.dropdown,
+              (isFocus || value) && { borderColor: '#a94bf3' },
+            ]}
+            onChange={(item) => {
+              setSelected(item);
+            }}
+            data={data}
+            value={selected}
+            labelField='label'
+            valueField='value'
+            search
+            searchPlaceholder='Search...'
+            placeholder={`Select ${placeholder.toLocaleLowerCase()}`}
+            placeholderStyle={styles.placeholderStyle}
+            iconStyle={styles2.iconStyle}
+            selectedStyle={styles2.selectedStyle}
+            itemTextStyle={styles.selectedTextStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles2.searchBoxStyle}
+            containerStyle={styles.itemContainerStyle}
+            maxSelect={4}
+            activeColor='#A94BF3'
+            maxHeight={210}
+          />
+        </View>
       ) : (
         <View style={styles.container}>
           {renderLabel}
@@ -71,10 +79,14 @@ export default function Dropdown({ data, placeholder = '', multiple = true }) {
             ]}
             placeholderStyle={styles.placeholderStyle}
             selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles2.searchBoxStyle}
             iconStyle={styles.iconStyle}
+            itemTextStyle={styles.itemTextStyle}
             containerStyle={styles.itemContainerStyle}
+            selectedStyle={styles2.selectedStyle}
             data={data}
             maxHeight={300}
+            search={search}
             labelField='label'
             onFocus={() => setIsFocus(true)}
             onBlur={() => setIsFocus(false)}
@@ -85,7 +97,7 @@ export default function Dropdown({ data, placeholder = '', multiple = true }) {
             onChange={(item) => {
               setValue(item.value);
             }}
-            renderItem={renderItem}
+            activeColor='#A94BF3'
           ></S.DropdownList>
         </View>
       )}

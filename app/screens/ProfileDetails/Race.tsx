@@ -46,7 +46,12 @@ const Race = () => {
         control={control}
         rules={{}}
         render={({ field: { onChange, onBlur, value } }) => (
-          <Dropdown placeholder={'Race'} data={raceList} />
+          <Dropdown
+            placeholder={'Race'}
+            multiple={false}
+            search={true}
+            data={raceList}
+          />
         )}
       />
     </>

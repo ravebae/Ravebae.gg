@@ -21,7 +21,7 @@ import race from './Race';
 import relationship from './Relationship';
 import interest from './Name';
 import media from './Name';
-import location from './Name';
+import location from './Location';
 import Back from '@components/Back';
 import { useAnimationState } from 'moti';
 
@@ -29,7 +29,7 @@ const stepList = {
   name: 'What is your name?',
   gender: 'What is your gender?',
   birthday: 'When is your birthday?',
-  language: 'What language(s) do you speak?',
+  language: 'What can you speak?',
   race: 'What is your race?',
   relationship: 'Relationship intention?',
   interest: 'Your interests',

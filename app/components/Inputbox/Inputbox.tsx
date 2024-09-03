@@ -65,7 +65,7 @@ export default function Inputbox({ placeholder, onChange, onBlur, value }) {
             (focus || value) && { borderColor: '#a94bf3' },
           ]}
           placeholder={'DD/MM/YYYY'}
-          onChangeText={() => setShow(true)}
+          onPress={() => setShow(true)}
           onBlur={() => setFocus(false)}
           onFocus={() => setFocus(true)}
           value={date ? date : ''}

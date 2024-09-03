@@ -10,5 +10,7 @@ export const formStore = new Store({
   race: '',
   email: '',
   birthday: '',
+  gender: '',
+  location: '',
   page: 0,
 });

@@ -18,7 +18,7 @@ const Gender = () => {
   return (
     <>
       <Controller
-        name='race'
+        name='gender'
         control={control}
         rules={{}}
         render={({ field: { onChange, onBlur, value } }) => (

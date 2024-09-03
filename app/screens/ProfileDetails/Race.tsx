@@ -6,34 +6,32 @@ import { Controller, useForm } from 'react-hook-form';
 import Dropdown from '@components/Dropdown';
 import { formStore } from 'store';
 
-import languages from 'app/helper/languages.json';
-
 const raceList = [
-  { key: 'African', value: 'African' },
-  { key: 'Caribbean', value: 'Caribbean' },
-  { key: 'Indian', value: 'Indian' },
-  { key: 'Melanesian', value: 'Melanesian' },
-  { key: 'Australasian/Aboriginal', value: 'Australasian/Aboriginal' },
-  { key: 'Chinese', value: 'Chinese' },
-  { key: 'Guamanian', value: 'Guamanian' },
-  { key: 'Japanese', value: 'Japanese' },
-  { key: 'Korean', value: 'Korean' },
-  { key: 'Polynesian', value: 'Polynesian' },
-  { key: 'European/Anglo Saxon', value: 'European/Anglo Saxon' },
-  { key: 'Other Pacific Islander', value: 'Other Pacific Islander' },
-  { key: 'Latin American', value: 'Latin American' },
-  { key: 'Arabic', value: 'Arabic' },
-  { key: 'Vietnamese', value: 'Vietnamese' },
-  { key: 'Micronesian', value: 'Micronesian' },
-  { key: 'Declined to Respond', value: 'Declined to Respond' },
-  { key: 'Other Hispanic', value: 'Other Hispanic' },
-  { key: 'US or Canadian Indian', value: 'US or Canadian Indian' },
-  { key: 'Other Asian', value: 'Other Asian' },
-  { key: 'Puerto Rican', value: 'Puerto Rican' },
-  { key: 'Filipino', value: 'Filipino' },
-  { key: 'Mexican', value: 'Mexican' },
-  { key: 'Alaskan Native', value: 'Alaskan Native' },
-  { key: 'Cuban ', value: 'Cuban ' },
+  { label: 'Prefer not to say', value: 'Prefer not to say' },
+  { label: 'African', value: 'African' },
+  { label: 'Caribbean', value: 'Caribbean' },
+  { label: 'Indian', value: 'Indian' },
+  { label: 'Melanesian', value: 'Melanesian' },
+  { label: 'Australasian/Aboriginal', value: 'Australasian/Aboriginal' },
+  { label: 'Chinese', value: 'Chinese' },
+  { label: 'Guamanian', value: 'Guamanian' },
+  { label: 'Japanese', value: 'Japanese' },
+  { label: 'Korean', value: 'Korean' },
+  { label: 'Polynesian', value: 'Polynesian' },
+  { label: 'European/Anglo Saxon', value: 'European/Anglo Saxon' },
+  { label: 'Other Pacific Islander', value: 'Other Pacific Islander' },
+  { label: 'Latin American', value: 'Latin American' },
+  { label: 'Arabic', value: 'Arabic' },
+  { label: 'Vietnamese', value: 'Vietnamese' },
+  { label: 'Micronesian', value: 'Micronesian' },
+  { label: 'Other Hispanic', value: 'Other Hispanic' },
+  { label: 'US or Canadian Indian', value: 'US or Canadian Indian' },
+  { label: 'Other Asian', value: 'Other Asian' },
+  { label: 'Puerto Rican', value: 'Puerto Rican' },
+  { label: 'Filipino', value: 'Filipino' },
+  { label: 'Mexican', value: 'Mexican' },
+  { label: 'Alaskan Native', value: 'Alaskan Native' },
+  { label: 'Cuban ', value: 'Cuban ' },
 ];
 
 const Race = () => {
@@ -48,7 +46,7 @@ const Race = () => {
         control={control}
         rules={{}}
         render={({ field: { onChange, onBlur, value } }) => (
-          <Dropdown data={raceList} />
+          <Dropdown placeholder={'Race'} data={raceList} />
         )}
       />
     </>

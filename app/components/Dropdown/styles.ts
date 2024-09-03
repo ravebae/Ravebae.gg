@@ -1,8 +1,6 @@
-import React from 'react';
-import { TextInput } from 'react-native';
-import styled from 'styled-components/native';
-import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
+import styled from 'styled-components/native';
 
 const DropdownList = Dropdown;
 

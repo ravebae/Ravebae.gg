@@ -1,7 +1,5 @@
-import { View, Text } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import S from './styles';
-import { VALIDATION_MODE } from 'react-hook-form/dist/constants';
 
 export default function CodeBox({ code, setVerified }) {
   const inputRefs = useRef([]);
@@ -26,7 +24,7 @@ export default function CodeBox({ code, setVerified }) {
   }, [otp]);
 
   const onInputChange = (text, idx) => {
-    let val = text;
+    const val = text;
     if (!isNaN(val)) {
       console.log('Here');
       setOtp((prev) => {

@@ -1,29 +1,19 @@
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-import S from './styles';
-import {
-  Button,
-  SafeAreaView,
-  Text,
-  TextInput,
-  TouchableHighlight,
-  View,
-  Image,
-} from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { TouchableHighlight, View } from 'react-native';
 import { formStore } from 'store';
+import S from './styles';
 
-import name from './Name';
-import gender from './Gender';
-import birthday from './Birthday';
-import language from './Language';
-import race from './Race';
-import relationship from './Relationship';
-import interest from './Name';
-import media from './Name';
-import location from './Location';
 import Back from '@components/Back';
 import { useAnimationState } from 'moti';
+import birthday from './Birthday';
+import gender from './Gender';
+import language from './Language';
+import location from './Location';
+import { default as interest, default as media, default as name } from './Name';
+import race from './Race';
+import relationship from './Relationship';
 
 const stepList = {
   name: 'What is your name?',
@@ -38,7 +28,7 @@ const stepList = {
 };
 
 export const ProfileDetails = ({ navigation }) => {
-  let [done, setDone] = useState(false);
+  const [done, setDone] = useState(false);
   const { register, control, handleSubmit } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
@@ -163,7 +153,7 @@ export const ProfileDetails = ({ navigation }) => {
                 <TouchableHighlight
                   onPress={() => {
                     formStore.update((s) => {
-                      let category = Object.keys(stepList);
+                      const category = Object.keys(stepList);
                       if (s.page < category.length - 1) {
                         console.log(category[s.page + 1]);
                         if (category[s.page + 1] === 'location') {

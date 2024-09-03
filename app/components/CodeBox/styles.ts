@@ -1,7 +1,4 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { View } from 'react-native';
-import { TextInput } from 'react-native';
+import { TextInput, View } from 'react-native';
 import styled from 'styled-components/native';
 
 const CodeContainer = styled(View)`

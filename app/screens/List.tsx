@@ -1,7 +1,7 @@
-import { View, Text, Button } from 'react-native';
-import React from 'react';
 import { NavigationProp } from '@react-navigation/native';
 import { FIREBASE_AUTH } from 'firebaseConfig';
+import React from 'react';
+import { Button, View } from 'react-native';
 
 export interface RouterProps {
   navigation: NavigationProp<any, any>;

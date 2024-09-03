@@ -1,13 +1,11 @@
-import { View, Text, TouchableHighlight } from 'react-native';
 import React from 'react';
+import { Text } from 'react-native';
 
-import S from './styles';
-import { Controller, useForm } from 'react-hook-form';
 import Inputbox from '@components/Inputbox';
-import Dropdown from '@components/Dropdown';
-import { formStore } from 'store';
 import { MotiView } from 'moti';
-import { FIREBASE_AUTH } from 'firebaseConfig';
+import { Controller, useForm } from 'react-hook-form';
+import { formStore } from 'store';
+import S from './styles';
 
 const Email = () => {
   const { register, control, handleSubmit } = useForm({

@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
 import S from './styles';
 
 import { Calendar } from 'react-native-calendars';

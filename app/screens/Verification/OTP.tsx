@@ -1,15 +1,14 @@
-import { View, Text, TouchableHighlight } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { TouchableHighlight } from 'react-native';
 
-import S from './styles';
 import { FIREBASE_AUTH } from 'firebaseConfig';
+import S from './styles';
 
-import axios from 'axios';
 import CodeBox from '@components/CodeBox';
 
 const OTP = ({ navigation, route: { params } }) => {
-  let { code } = params;
-  let [verified, setVerified] = useState(false);
+  const { code } = params;
+  const [verified, setVerified] = useState(false);
 
   useEffect(() => {
     if (verified) navigation.navigate('profile');

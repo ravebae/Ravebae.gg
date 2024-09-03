@@ -1,26 +1,22 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  ActivityIndicator,
-  Button,
-  KeyboardAvoidingView,
-  Pressable,
-} from 'react-native';
-import React, { useState } from 'react';
-import { FIREBASE_AUTH } from '../../firebaseConfig';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import Logo from '@components/Logo';
 import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
 import {
-  Poppins_600SemiBold,
   Poppins_400Regular,
+  Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react';
+import {
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import { FIREBASE_AUTH } from '../../firebaseConfig';
 import { RouterProps } from './List';
-import Logo from '@components/Logo';
 
 const Login = ({ navigation }: RouterProps) => {
   const [email, setEmail] = useState('');

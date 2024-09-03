@@ -1,13 +1,10 @@
-import { View, Text, TouchableHighlight } from 'react-native';
 import React from 'react';
 
-import S from './styles';
-import { Controller, useForm } from 'react-hook-form';
 import Inputbox from '@components/Inputbox';
-import Dropdown from '@components/Dropdown';
+import { Controller, useForm } from 'react-hook-form';
 import { formStore } from 'store';
 
-import { MotiSafeAreaView, MotiView } from 'moti';
+import { MotiSafeAreaView } from 'moti';
 
 const Name = ({ navigation }) => {
   const { register, control, handleSubmit } = useForm({

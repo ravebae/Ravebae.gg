@@ -1,22 +1,16 @@
-import { View, Text, TouchableHighlight } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
+import { TouchableHighlight } from 'react-native';
 
-import S from './styles';
-import { Controller, useForm, useWatch } from 'react-hook-form';
 import Inputbox from '@components/Inputbox';
-import Dropdown from '@components/Dropdown';
-import { formStore } from 'store';
-import { MotiText, MotiView } from 'moti';
-import { FIREBASE_AUTH } from 'firebaseConfig';
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  sendSignInLinkToEmail,
-} from 'firebase/auth';
 import axios from 'axios';
+import { FIREBASE_AUTH } from 'firebaseConfig';
+import { MotiView } from 'moti';
+import { Controller, useForm } from 'react-hook-form';
+import { formStore } from 'store';
+import S from './styles';
 
 const Verification = ({ navigation }) => {
-  const { register, control, handleSubmit, getValues } = useForm({
+  const { control, getValues } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
 
@@ -65,7 +59,7 @@ const Verification = ({ navigation }) => {
               console.log('Pressed');
               const val = getValues();
 
-              let data = {
+              const data = {
                 email: val.email.toLocaleLowerCase(),
                 code: generateToken(),
               };

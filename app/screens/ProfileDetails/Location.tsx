@@ -1,9 +1,7 @@
-import { TouchableHighlight } from 'react-native';
 import React from 'react';
 
-import S from './styles';
-import { Controller, useForm } from 'react-hook-form';
 import Dropdown from '@components/Dropdown';
+import { Controller, useForm } from 'react-hook-form';
 import { formStore } from 'store';
 
 import location from 'app/helper/suburbs.json';

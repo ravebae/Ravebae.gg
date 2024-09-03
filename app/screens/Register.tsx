@@ -1,25 +1,19 @@
+import Logo from '@components/Logo';
+import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
+import { Poppins_600SemiBold } from '@expo-google-fonts/poppins';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { FIREBASE_AUTH } from 'firebaseConfig';
+import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
   ActivityIndicator,
-  Button,
   KeyboardAvoidingView,
   Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from 'react-native';
-import React, { useState } from 'react';
-import { FIREBASE_AUTH } from 'firebaseConfig';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendEmailVerification,
-  signOut,
-} from 'firebase/auth';
-import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
 import { RouterProps } from './List';
-import Logo from '@components/Logo';
-import { Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 
 const Register = ({ navigation }: RouterProps) => {
   const [email, setEmail] = useState('');

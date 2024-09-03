@@ -1,14 +1,12 @@
-import { View, Text, TouchableHighlight, Modal } from 'react-native';
 import React, { useState } from 'react';
+import { Modal } from 'react-native';
 
-import { Calendar, LocaleConfig } from 'react-native-calendars';
+import { Calendar } from 'react-native-calendars';
 
-import S from './styles';
-import { Controller, useForm } from 'react-hook-form';
 import Inputbox from '@components/Inputbox';
-import Dropdown from '@components/Dropdown';
-import { formStore } from 'store';
 import { MotiView } from 'moti';
+import { Controller, useForm } from 'react-hook-form';
+import { formStore } from 'store';
 
 const Birthday = () => {
   const { register, control, handleSubmit } = useForm({

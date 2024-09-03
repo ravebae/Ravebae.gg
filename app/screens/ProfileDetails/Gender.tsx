@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Controller, useForm } from 'react-hook-form';
 import DropdownEl from '@components/Dropdown';
+import { Controller, useForm } from 'react-hook-form';
 import { formStore } from 'store';
 
 const genderList = [

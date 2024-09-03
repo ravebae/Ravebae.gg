@@ -3,7 +3,6 @@ import { createTransport } from 'nodemailer';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import googleapis from 'googleapis';
-import ngrok from 'ngrok';
 import handlebars from 'handlebars';
 import fs from 'fs';
 

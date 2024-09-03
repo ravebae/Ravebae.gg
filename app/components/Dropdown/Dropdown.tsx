@@ -1,14 +1,9 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
-import DropdownArrow from 'assets/dropdown.svg';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { SelectList } from 'react-native-dropdown-select-list';
-import { MultipleSelectList } from 'react-native-dropdown-select-list';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Arrow from './Arrow/Arrow';
 
 import S from './styles';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 
 export default function Dropdown({
   data,

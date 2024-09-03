@@ -67,7 +67,7 @@ const Verification = ({ navigation }) => {
               navigation.navigate('otp', { code: data.code });
               await axios
                 .post(
-                  'https://83f1-123-208-248-87.ngrok-free.app/user/verify_email', // Hosted on ngrok locally
+                  'https://9755-123-208-248-87.ngrok-free.app/user/verify_email', // Hosted on ngrok locally
                   data
                 )
                 .then(() => {

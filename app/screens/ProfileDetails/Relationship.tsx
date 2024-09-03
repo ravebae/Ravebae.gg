@@ -6,8 +6,6 @@ import { Controller, useForm } from 'react-hook-form';
 import Dropdown from '@components/Dropdown';
 import { formStore } from 'store';
 
-import languages from 'app/helper/languages.json';
-
 const Relationship = () => {
   const { register, control, handleSubmit } = useForm({
     defaultValues: formStore.useState((s) => s),
@@ -20,22 +18,26 @@ const Relationship = () => {
   };
 
   const relationshipStatus = [
-    { key: 'fun', value: 'Looking for a buzz' },
-    { key: 'short', value: 'Short term' },
-    { key: 'long', value: 'Long term' },
+    { label: 'Looking for a buzz', value: 'fun' },
+    { label: 'Short term', value: 'short' },
+    { label: 'Long term', value: 'long' },
   ];
 
   return (
-    <S.FormWrapper>
+    <>
       <Controller
         name='relationship'
         control={control}
         rules={{}}
         render={({ field: { onChange, onBlur, value } }) => (
-          <Dropdown data={relationshipStatus} />
+          <Dropdown
+            placeholder={'Relationship intent'}
+            data={relationshipStatus}
+            multiple={false}
+          />
         )}
       />
-    </S.FormWrapper>
+    </>
   );
 };
 

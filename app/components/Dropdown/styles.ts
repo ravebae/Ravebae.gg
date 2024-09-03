@@ -1,10 +1,12 @@
 import React from 'react';
 import { TextInput } from 'react-native';
 import styled from 'styled-components/native';
-import { Dropdown } from 'react-native-element-dropdown';
+import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const DropdownList = Dropdown;
+
+const MultiDropdownList = MultiSelect;
 
 const InputLabelBG = styled(LinearGradient)`
   position: absolute;
@@ -27,6 +29,7 @@ const InputLabel = styled.Text`
 `;
 
 export default {
+  MultiDropdownList,
   DropdownList,
   InputLabel,
   InputLabelBG,

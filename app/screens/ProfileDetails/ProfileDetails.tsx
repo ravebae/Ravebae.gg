@@ -10,7 +10,7 @@ import {
   View,
   Image,
 } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { formStore } from 'store';
 
 import name from './Name';
@@ -38,6 +38,7 @@ const stepList = {
 };
 
 export const ProfileDetails = ({ navigation }) => {
+  let [done, setDone] = useState(false);
   const { register, control, handleSubmit } = useForm({
     defaultValues: formStore.useState((s) => s),
   });
@@ -64,7 +65,11 @@ export const ProfileDetails = ({ navigation }) => {
   const handleContinue = () => {
     // navigation.navigate('details');
     formStore.update((s) => {
-      s.page += 1;
+      if (s.page < Object.keys(stepList).length - 1) {
+        s.page += 1;
+      } else {
+        console.log('Done');
+      }
     });
   };
 
@@ -156,7 +161,22 @@ export const ProfileDetails = ({ navigation }) => {
 
               <View style={{ flex: 1, paddingTop: 50, position: 'relative' }}>
                 <TouchableHighlight
-                  onPress={handleContinue}
+                  onPress={() => {
+                    formStore.update((s) => {
+                      let category = Object.keys(stepList);
+                      if (s.page < category.length - 1) {
+                        console.log(category[s.page + 1]);
+                        if (category[s.page + 1] === 'location') {
+                          setDone(true);
+                        }
+                        s.page += 1;
+                      } else {
+                        setDone(false);
+                        navigation.navigate('explore');
+                      }
+                    });
+                    console.log(formStore);
+                  }}
                   style={{
                     width: '100%',
                     position: 'absolute',
@@ -165,15 +185,8 @@ export const ProfileDetails = ({ navigation }) => {
                   activeOpacity={1}
                 >
                   <S.ContinueBtn>
-                    <S.Continue
-                      onPress={() => {
-                        formStore.update((s) => {
-                          s.page += 1;
-                        });
-                        console.log(formStore);
-                      }}
-                    >
-                      Continue
+                    <S.Continue>
+                      {done ? 'Find my ravebae!' : 'Continue'}
                     </S.Continue>
                   </S.ContinueBtn>
                 </TouchableHighlight>

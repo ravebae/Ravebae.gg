@@ -41,7 +41,6 @@ const Email = () => {
                   />
                 )}
               />
-              <Text>Hello</Text>
             </MotiView>
           </S.FormWrapper>
         </S.EmailContainer>

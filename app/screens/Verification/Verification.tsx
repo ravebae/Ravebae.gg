@@ -84,6 +84,14 @@ const Verification = ({ navigation }) => {
               <S.Continue>Continue</S.Continue>
             </S.ContinueBtn>
           </TouchableHighlight>
+          <TouchableHighlight
+            onPress={() => navigation.navigate('explore')}
+            style={{ marginTop: 20 }}
+          >
+            <S.ContinueBtn>
+              <S.Continue>Skip</S.Continue>
+            </S.ContinueBtn>
+          </TouchableHighlight>
         </S.VerificationContainer>
       </S.ScrollContainer>
     </S.ViewContainer>

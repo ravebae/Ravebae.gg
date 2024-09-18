@@ -1,5 +1,5 @@
-import { View, Image, Text, ScrollView} from 'react-native'
-import React from 'react'
+import { View, Image, Text, ScrollView } from 'react-native';
+import React from 'react';
 import S from './ProfileDetails/styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ChineseGirl from './Images/ChineseGirl.jpeg';
@@ -75,10 +75,20 @@ const PopularMatches = () => {
                 }}
                 />
             </View>
-            </ScrollView>
-        </View>
+            <Image
+              source={Glasses}
+              style={{
+                width: 255,
+                height: 255,
+                borderRadius: 20,
+                marginTop: -25,
+              }}
+            />
+          </View>
+        </ScrollView>
+      </View>
     </S.ProfileContainer>
-  )
-}
+  );
+};
 
-export default PopularMatches
+export default PopularMatches;

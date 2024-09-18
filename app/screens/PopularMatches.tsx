@@ -4,7 +4,7 @@ import S from './ProfileDetails/styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ChineseGirl from './Images/ChineseGirl.jpeg';
 import Glasses from './Images/Glasses.jpeg';
-import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
+import Kandi from './Images/Kandi.jpeg';
 
 const PopularMatches = () => {
   return (
@@ -26,7 +26,15 @@ const PopularMatches = () => {
             }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center'}}>
                     <S.Title style={{ fontFamily: 'JockeyOne_400Regular', marginRight: 69}}>Angela Tran, 21</S.Title>
-                    <MCI name="star-circle" size={25} color="#9656ce" style={{marginTop: -37}}></MCI>
+                    <Image 
+                        source={Kandi}
+                        style={{width: 25,
+                                height: 25,
+                                borderRadius: '20px',
+                                marginTop: -37,
+                                marginRight: 20
+                        }}
+                    />
                 </View>
                 <Image 
                 source={ChineseGirl}
@@ -48,7 +56,15 @@ const PopularMatches = () => {
             }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center'}}>
                     <S.Title style={{ fontFamily: 'JockeyOne_400Regular', marginRight: 77}}>Cindy Tran, 25</S.Title>
-                    <MCI name="star-circle" size={25} color="#9656ce" style={{marginTop: -37}}></MCI>
+                    <Image 
+                        source={Kandi}
+                        style={{width: 25,
+                                height: 25,
+                                borderRadius: '20px',
+                                marginTop: -37,
+                                marginRight: 20
+                        }}
+                    />
                 </View>
                 <Image 
                 source={Glasses}

@@ -9,6 +9,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Kandi from './Images/Kandi.jpeg';
 
 const Explore = () => {
   return (
@@ -16,6 +17,15 @@ const Explore = () => {
       <S.ProfileContainer>
         <View style={{ flexDirection: 'row', alignItems: 'center'}}>
           <S.Title style={{ fontFamily: 'JockeyOne_400Regular', marginRight: 20}}>Tiffany Nguyen, 27</S.Title>
+          <Image 
+            source={Kandi}
+            style={{width: 25,
+                    height: 25,
+                    borderRadius: '20px',
+                    marginTop: -37,
+                    marginRight: 20
+            }}
+          />
           <Entypo name="dots-three-horizontal" size={35} color="#9656ce" style={{ marginTop: -35 }}></Entypo>
         </View>
         <View style={{width: 360,

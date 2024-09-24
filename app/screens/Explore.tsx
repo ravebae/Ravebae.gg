@@ -16,6 +16,9 @@ export const Explore = () => {
   const [clickedButton, setClickedButton] = useState('');
   const toggleDropdown = () => {
     setVisible(!visible);
+    if (!visible) {
+      setClickedButton('');
+    }
   };
 
   const handleClickedButton = (clicked) => {
@@ -61,15 +64,39 @@ export const Explore = () => {
           </TouchableOpacity>
           {visible && (
             <View style={{position: 'absolute', left: 200, top: 50}}>
-              <TouchableOpacity style={{backgroundColor: '#cab2fb', borderTopLeftRadius: 10, borderTopRightRadius: 10, width: 135, paddingLeft: 20, paddingTop: 10, paddingBottom: 10}}>
+              <TouchableOpacity style={{backgroundColor: '#cab2fb', borderTopLeftRadius: 10, borderTopRightRadius: 10, width: 135, paddingLeft: 20, paddingTop: 10, paddingBottom: 10}} onPress={() => handleClickedButton('Remove')}>
                 <Text style={{fontFamily: 'JockeyOne_400Regular', fontSize: 15}}>Remove</Text>
               </TouchableOpacity>
               <Text style={{width:135, height: 1, color: 'black'}}></Text>
-              <TouchableOpacity style={{backgroundColor: '#cab2fb', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, width: 135, paddingLeft: 20, paddingTop: 10, paddingBottom: 10}}>
+              <TouchableOpacity style={{backgroundColor: '#cab2fb', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, width: 135, paddingLeft: 20, paddingTop: 10, paddingBottom: 10}} onPress={() => handleClickedButton('Report')}>
                 <Text style={{fontFamily: 'JockeyOne_400Regular', fontSize: 15}}>Report</Text>
               </TouchableOpacity>
             </View>
             )}
+          {clickedButton === 'Report' && visible && (
+            <View style={{
+              width: '100%',
+              height: 360,
+              borderRadius: 20,
+              position: 'absolute',
+              top: 50,
+              display: 'flex',
+              marginLeft: -35,
+              marginTop: 100,
+              backgroundColor: '#4F4457', 
+              alignItems: 'center',
+              borderColor: '#4F4457',
+              borderWidth: 1,
+            }}>
+              <Text style={{color: 'white', fontSize: 27, fontFamily: 'JockeyOne_400Regular', paddingTop: 15, marginBottom: 20}}>Please select a reason</Text>
+              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>I am not interested in this person</Text>
+              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Profile is fake, spam or scammer</Text>
+              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Explicit content</Text>
+              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Under age or minor</Text>
+              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Person in danger</Text>
+            </View>
+
+          )}
         </View>
         <View
           style={{

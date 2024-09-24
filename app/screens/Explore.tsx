@@ -1,5 +1,5 @@
-import { View, Image, Text, ScrollView } from 'react-native';
-import React from 'react';
+import { View, Image, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
 import S from './ProfileDetails/styles';
 import VietGirl from './Images/VietGirl.jpeg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -12,6 +12,16 @@ import Kandi from './Images/Kandi.jpeg';
 import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export const Explore = () => {
+  const [visible, setVisible] = useState(false);
+  const [clickedButton, setClickedButton] = useState('');
+  const toggleDropdown = () => {
+    setVisible(!visible);
+  };
+
+  const handleClickedButton = (clicked) => {
+    setClickedButton(clicked);
+  };
+
   return (
     <ScrollView>
       <View
@@ -26,7 +36,7 @@ export const Explore = () => {
           paddingHorizontal: 20,
         }}
       >
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', zIndex: 100}}>
           <S.Title
             style={{ fontFamily: 'JockeyOne_400Regular', marginRight: 20 }}
           >
@@ -41,12 +51,25 @@ export const Explore = () => {
                     marginRight: 20
             }}
           />
-          <Entypo
-            name='dots-three-horizontal'
-            size={35}
-            color='#9656ce'
-            style={{ marginTop: -35 }}
-          ></Entypo>
+          <TouchableOpacity onPress={toggleDropdown}>
+            <Entypo
+              name='dots-three-horizontal'
+              size={35}
+              color='#9656ce'
+              style={{ marginTop: -35 }}
+            ></Entypo>
+          </TouchableOpacity>
+          {visible && (
+            <View style={{position: 'absolute', left: 200, top: 50}}>
+              <TouchableOpacity style={{backgroundColor: '#cab2fb', borderTopLeftRadius: 10, borderTopRightRadius: 10, width: 135, paddingLeft: 20, paddingTop: 10, paddingBottom: 10}}>
+                <Text style={{fontFamily: 'JockeyOne_400Regular', fontSize: 15}}>Remove</Text>
+              </TouchableOpacity>
+              <Text style={{width:135, height: 1, color: 'black'}}></Text>
+              <TouchableOpacity style={{backgroundColor: '#cab2fb', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, width: 135, paddingLeft: 20, paddingTop: 10, paddingBottom: 10}}>
+                <Text style={{fontFamily: 'JockeyOne_400Regular', fontSize: 15}}>Report</Text>
+              </TouchableOpacity>
+            </View>
+            )}
         </View>
         <View
           style={{
@@ -56,7 +79,7 @@ export const Explore = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: 20,
+            borderRadius: 20
           }}
         >
           <Text

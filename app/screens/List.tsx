@@ -15,6 +15,9 @@ const List = ({ navigation }: RouterProps) => {
         title='Open details'
       />
       <Button onPress={() => navigation.navigate('step')} title='Start form' />
+      <Button onPress={() => navigation.navigate('explore page')} title='Explore Page' />
+      <Button onPress={() => navigation.navigate('popular matches')} title='Popular Matches' />
+      <Button onPress={() => navigation.navigate('likes page')} title='Likes Page' />
       <Button onPress={() => FIREBASE_AUTH.signOut()} title='Logout' />
     </View>
   );

@@ -11,6 +11,9 @@ import { User, onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './firebaseConfig';
 import Register from './app/screens/Register';
 import { ProfileDetails } from './app/screens/ProfileDetails/ProfileDetails';
+import { PopularMatches } from './app/screens/PopularMatches';
+import { Explore } from './app/screens/Explore';
+import { LikesPage } from './app/screens/LikesPage';
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -20,9 +23,12 @@ function InsideLayout() {
     <InsideStack.Navigator>
       <InsideStack.Screen name='My profile' component={List} />
       <InsideStack.Screen name='details' component={Details} />
+      <InsideStack.Screen name='explore page' component={Explore} />
+      <InsideStack.Screen name='popular matches' component={PopularMatches} />
       <InsideStack.Screen name='step' component={ProfileDetails} />
+      <InsideStack.Screen name='likes page' component={LikesPage} />
     </InsideStack.Navigator>
-  );
+  );  
 }
 
 export default function App() {

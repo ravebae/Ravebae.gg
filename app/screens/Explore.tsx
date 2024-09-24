@@ -3,30 +3,50 @@ import React from 'react';
 import S from './ProfileDetails/styles';
 import VietGirl from './Images/VietGirl.jpeg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Kandi from './Images/Kandi.jpeg';
+import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Explore = () => {
+export const Explore = () => {
   return (
     <ScrollView>
-      <S.ProfileContainer>
-        <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-          <S.Title style={{ fontFamily: 'JockeyOne_400Regular', marginRight: 20}}>Tiffany Nguyen, 27</S.Title>
+      <View
+        style={{
+          display: 'flex',
+          flex: 1,
+          width: '100%',
+          alignItems: 'center',
+          backgroundColor: '#081e23',
+          height: '100%',
+          paddingVertical: 50,
+          paddingHorizontal: 20,
+        }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <S.Title
+            style={{ fontFamily: 'JockeyOne_400Regular', marginRight: 20 }}
+          >
+            Tiffany Nguyen, 27
+          </S.Title>
           <Image 
             source={Kandi}
             style={{width: 25,
                     height: 25,
-                    borderRadius: '20px',
+                    borderRadius: 20,
                     marginTop: -37,
                     marginRight: 20
             }}
           />
-          <Entypo name="dots-three-horizontal" size={35} color="#9656ce" style={{ marginTop: -35 }}></Entypo>
+          <Entypo
+            name='dots-three-horizontal'
+            size={35}
+            color='#9656ce'
+            style={{ marginTop: -35 }}
+          ></Entypo>
         </View>
         <View
           style={{

@@ -10,6 +10,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Kandi from './Images/Kandi.jpeg';
 import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
+import { CheckBox } from 'react-native-elements';
 
 export const Explore = () => {
   const [visible, setVisible] = useState(false);
@@ -20,8 +21,35 @@ export const Explore = () => {
       setClickedButton('');
     }
   };
+  
+  const [checked, setChecked] = useState({
+    notInterested: false,
+    fakeProfile: false,
+    explicitContent: false,
+    underAge: false,
+    danger: false,
+  });
+
+  const handleReport = () => {
+    setVisible(!visible);
+      if (!visible) {
+        setClickedButton('');
+      }
+  }
+  const handleCheck = (name) => {
+    setChecked({
+      ...checked,
+      [name]: !checked[name],
+    });
+  };
 
   const handleClickedButton = (clicked) => {
+    if (clicked == "Remove") {
+      setVisible(!visible);
+      if (!visible) {
+        setClickedButton('');
+      }
+    }
     setClickedButton(clicked);
   };
 
@@ -74,28 +102,49 @@ export const Explore = () => {
             </View>
             )}
           {clickedButton === 'Report' && visible && (
-            <View style={{
-              width: '100%',
-              height: 360,
-              borderRadius: 20,
-              position: 'absolute',
-              top: 50,
-              display: 'flex',
-              marginLeft: -35,
-              marginTop: 100,
-              backgroundColor: '#4F4457', 
-              alignItems: 'center',
-              borderColor: '#4F4457',
-              borderWidth: 1,
-            }}>
-              <Text style={{color: 'white', fontSize: 27, fontFamily: 'JockeyOne_400Regular', paddingTop: 15, marginBottom: 20}}>Please select a reason</Text>
-              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>I am not interested in this person</Text>
-              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Profile is fake, spam or scammer</Text>
-              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Explicit content</Text>
-              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Under age or minor</Text>
-              <Text style={{color: 'white', fontSize: 20, fontFamily: 'JockeyOne_400Regular', marginBottom: 15, marginLeft: 23}}>Person in danger</Text>
+            <View style={styles.container}>
+              <Text style={styles.title}>Please select a reason</Text>
+              <CheckBox
+                title="I am not interested in this person"
+                checked={checked.notInterested}
+                onPress={() => handleCheck('notInterested')}
+                containerStyle={styles.checkboxContainer}
+                textStyle={styles.checkboxText}
+              />
+              <CheckBox
+                title="Profile is fake, spam or scammer"
+                checked={checked.fakeProfile}
+                onPress={() => handleCheck('fakeProfile')}
+                containerStyle={styles.checkboxContainer}
+                textStyle={styles.checkboxText}
+              />
+              <CheckBox
+                title="Explicit content"
+                checked={checked.explicitContent}
+                onPress={() => handleCheck('explicitContent')}
+                containerStyle={styles.checkboxContainer}
+                textStyle={styles.checkboxText}
+              />
+              <CheckBox
+                title="Under age or minor"
+                checked={checked.underAge}
+                onPress={() => handleCheck('underAge')}
+                containerStyle={styles.checkboxContainer}
+                textStyle={styles.checkboxText}
+              />
+              <CheckBox
+                title="Person in danger"
+                checked={checked.danger}
+                onPress={() => handleCheck('danger')}
+                containerStyle={styles.checkboxContainer}
+                textStyle={styles.checkboxText}
+              />
+              <Text style={{width:'100%', height: 1, color: 'black'}}>hello</Text>
+              <TouchableOpacity style={styles.reportButton} onPress={handleReport}>
+                <Text style={styles.reportButtonText}>Report</Text>
+              </TouchableOpacity>
             </View>
-
+            
           )}
         </View>
         <View
@@ -451,5 +500,56 @@ export const Explore = () => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: 360,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    position: 'absolute',
+    top: 50,
+    marginLeft: -35,
+    marginTop: 100,
+    backgroundColor: '#4F4457',
+    alignItems: 'center',
+    borderColor: '#4F4457',
+    borderWidth: 1,
+  },
+  title: {
+    color: 'white',
+    fontSize: 27,
+    fontFamily: 'JockeyOne_400Regular',
+    paddingTop: 15,
+    marginBottom: 5,
+  },
+  checkboxContainer: {
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    width: '90%',
+  },
+  checkboxText: {
+    color: 'white',
+    fontSize: 20,
+    fontFamily: 'JockeyOne_400Regular',
+  },
+  reportButton: {
+    width: '100%',
+    marginTop: 10,
+    backgroundColor: '#4F4457',
+    borderColor: '#4F4457',
+    borderWidth: 1,
+    paddingVertical: 10,
+    paddingHorizontal: 60,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    alignItems: 'center',
+  },
+  reportButtonText: {
+    color: 'white',
+    fontSize: 27,
+    fontFamily: 'JockeyOne_400Regular',
+  },
+});
 
 export default Explore;

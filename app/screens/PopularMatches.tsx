@@ -2,14 +2,16 @@ import { View, Image, Text, ScrollView } from 'react-native';
 import React from 'react';
 import S from './ProfileDetails/styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import ChineseGirl from './Images/ChineseGirl.jpeg';
-import Glasses from './Images/Glasses.jpeg';
+import ChineseGirl from 'assets/img/ChineseGirl.jpeg';
+import Glasses from 'assets/img/Glasses.jpeg';
 import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const PopularMatches = () => {
   return (
     <S.ProfileContainer>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <View
+        style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 50 }}
+      >
         <S.Title
           style={{
             fontFamily: 'JockeyOne_400Regular',
@@ -19,12 +21,7 @@ const PopularMatches = () => {
         >
           Popular Matches
         </S.Title>
-        <Ionicons
-          name='storefront'
-          size={35}
-          color='#9656ce'
-          style={{ marginTop: -38 }}
-        ></Ionicons>
+        <Ionicons name='storefront' size={35} color='#9656ce'></Ionicons>
       </View>
       <Text
         style={{
@@ -46,7 +43,7 @@ const PopularMatches = () => {
               backgroundColor: '#05272f',
               paddingLeft: 21,
               paddingTop: 30,
-              marginTop: 42,
+              marginTop: 40,
               borderRadius: 20,
             }}
           >
@@ -56,12 +53,7 @@ const PopularMatches = () => {
               >
                 Angela Tran, 21
               </S.Title>
-              <MCI
-                name='star-circle'
-                size={25}
-                color='#9656ce'
-                style={{ marginTop: -37 }}
-              ></MCI>
+              <MCI name='star-circle' size={25} color='#9656ce'></MCI>
             </View>
             <Image
               source={ChineseGirl}
@@ -69,7 +61,7 @@ const PopularMatches = () => {
                 width: 255,
                 height: 255,
                 borderRadius: 20,
-                marginTop: -25,
+                marginTop: 25,
               }}
             />
           </View>
@@ -80,7 +72,7 @@ const PopularMatches = () => {
               backgroundColor: '#05272f',
               paddingLeft: 21,
               paddingTop: 30,
-              marginTop: 42,
+              marginTop: 40,
               marginLeft: 10,
               borderRadius: 20,
             }}
@@ -91,12 +83,7 @@ const PopularMatches = () => {
               >
                 Cindy Tran, 25
               </S.Title>
-              <MCI
-                name='star-circle'
-                size={25}
-                color='#9656ce'
-                style={{ marginTop: -37 }}
-              ></MCI>
+              <MCI name='star-circle' size={25} color='#9656ce'></MCI>
             </View>
             <Image
               source={Glasses}
@@ -104,7 +91,7 @@ const PopularMatches = () => {
                 width: 255,
                 height: 255,
                 borderRadius: 20,
-                marginTop: -25,
+                marginTop: 25,
               }}
             />
           </View>

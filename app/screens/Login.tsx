@@ -1,22 +1,22 @@
+import Logo from '@components/Logo';
+import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
+  Poppins_400Regular,
+  Poppins_600SemiBold,
+} from '@expo-google-fonts/poppins';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react';
+import {
   ActivityIndicator,
-  Button,
   KeyboardAvoidingView,
   Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from 'react-native';
-import React, { useState } from 'react';
 import { FIREBASE_AUTH } from '../../firebaseConfig';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
-import { JockeyOne_400Regular, useFonts } from '@expo-google-fonts/jockey-one';
 import { RouterProps } from './List';
-import Logo from '@components/Logo';
 
 const Login = ({ navigation }: RouterProps) => {
   const [email, setEmail] = useState('');
@@ -25,6 +25,8 @@ const Login = ({ navigation }: RouterProps) => {
 
   const [fontsLoaded] = useFonts({
     JockeyOne_400Regular,
+    Poppins_400Regular,
+    Poppins_600SemiBold,
   });
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;

@@ -7,6 +7,7 @@ import PopularMatches from '../PopularMatches';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Shop from '../Shop';
 import Boost from '../Shop/Boost';
+import {DirectMessagePrototype} from '../Messages/DirectMessage';
 
 const Tab = createBottomTabNavigator();
 function Dashboard() {

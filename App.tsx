@@ -15,6 +15,7 @@ import Register from './app/screens/Register';
 import { FIREBASE_AUTH } from './firebaseConfig';
 import PopularMatches from '@src/screens/PopularMatches';
 import Dashboard from '@src/screens/Dashboard';
+import { DirectMessageScreen, messageTopBar } from '@src/screens/Messages/DirectMessage';
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -24,6 +25,11 @@ function InsideLayout() {
     <InsideStack.Navigator>
       <InsideStack.Screen name='My profile' component={List} />
       <InsideStack.Screen name='details' component={Details} />
+      <InsideStack.Screen 
+        name='DirectMessageScreen' 
+        component={DirectMessageScreen}
+        options={({ navigation }) => messageTopBar({ navigation })}
+      />
       <InsideStack.Screen
         name='step'
         component={Verification}

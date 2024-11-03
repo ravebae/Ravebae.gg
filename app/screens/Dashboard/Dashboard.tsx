@@ -7,6 +7,9 @@ import PopularMatches from '../PopularMatches';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Shop from '../Shop';
 import Boost from '../Shop/Boost';
+import Messages from '../Messages/Messages';
+import { Settings } from 'react-native';
+import Setting from '../Setting';
 
 const Tab = createBottomTabNavigator();
 function Dashboard() {
@@ -43,6 +46,16 @@ function Dashboard() {
         }}
       />
       <Tab.Screen
+        name='Messages'
+        component={Messages}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name='mail' size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name='Shop'
         component={Shop}
         options={{
@@ -59,6 +72,16 @@ function Dashboard() {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name='rocket' size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name='Profile'
+        component={Setting}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name='person-circle-outline' size={size} color={color} />
           ),
         }}
       />

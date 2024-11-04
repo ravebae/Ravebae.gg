@@ -14,6 +14,7 @@ import { ProfileDetails } from './app/screens/ProfileDetails/ProfileDetails';
 import { PopularMatches } from './app/screens/PopularMatches';
 import { Explore } from './app/screens/Explore';
 import { LikesPage } from './app/screens/LikesPage';
+import { KandiShop } from './app/screens/KandiShop';
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -27,6 +28,7 @@ function InsideLayout() {
       <InsideStack.Screen name='popular matches' component={PopularMatches} />
       <InsideStack.Screen name='step' component={ProfileDetails} />
       <InsideStack.Screen name='likes page' component={LikesPage} />
+      <InsideStack.Screen name='kandi shop' component={KandiShop} />
     </InsideStack.Navigator>
   );  
 }

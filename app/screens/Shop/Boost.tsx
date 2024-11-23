@@ -49,15 +49,15 @@ const Boost = () => {
 
       <S.BoostContainer>
         <S.BoostItem>
-          <S.BoostTitle>1 Month for $20</S.BoostTitle>
+          <S.BoostTitle>1 Month for $2.99</S.BoostTitle>
           <S.BoostCircle />
         </S.BoostItem>
         <S.BoostItem>
-          <S.BoostTitle>3 Month for $15 each</S.BoostTitle>
+          <S.BoostTitle>3 Month for $4.99 each</S.BoostTitle>
           <S.BoostCircle />
         </S.BoostItem>
         <S.BoostItem>
-          <S.BoostTitle>12 Month for $12 each</S.BoostTitle>
+          <S.BoostTitle>12 Month for $14.99 each</S.BoostTitle>
           <S.BoostCircle />
         </S.BoostItem>
       </S.BoostContainer>

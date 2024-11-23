@@ -39,11 +39,11 @@ const Shop = () => {
         <View
           style={{ flexDirection: 'row', alignItems: 'center', marginTop: 35 }}
         >
-          <PlanCard plan={'1 month'} price={29.93} category={'Rave Newbie'} />
-          <PlanCard plan={'3 months'} price={85.93} category={'Raver'} />
+          <PlanCard plan={'1 month'} price={10.99} category={'Rave Newbie'} />
+          <PlanCard plan={'3 months'} price={30.99} category={'Raver'} />
           <PlanCard
             plan={'12 months'}
-            price={250.93}
+            price={110.99}
             category={'Rave Veteran'}
           />
         </View>

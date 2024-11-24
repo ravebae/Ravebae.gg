@@ -35,15 +35,15 @@ export const KandiShop = () => {
             </View>
             <View style={{ alignItems: 'center'}}>
                 <View style={{ flexDirection: 'row'}}>
-                    <Text style={{color: 'white', fontFamily: 'JockeyOne_400Regular', fontSize: 20, marginTop: 50}}>1 for $5.99</Text>
+                    <Text style={{color: 'white', fontFamily: 'JockeyOne_400Regular', fontSize: 20, marginTop: 50}}>1 for $1.99</Text>
                     <View style={{width: 20, height: 20, borderRadius: 50, backgroundColor: 'white', marginTop: 55}}></View>
                 </View>
                 <View style={{ flexDirection: 'row'}}>
-                    <Text style={{color: 'white', fontFamily: 'JockeyOne_400Regular', fontSize: 20, marginTop: 50}}>5 for $25.00</Text>
+                    <Text style={{color: 'white', fontFamily: 'JockeyOne_400Regular', fontSize: 20, marginTop: 50}}>3 for $2.99</Text>
                     <View style={{width: 20, height: 20, borderRadius: 50, backgroundColor: 'white', marginTop: 55}}></View>
                 </View>
                 <View style={{ flexDirection: 'row'}}>
-                    <Text style={{color: 'white', fontFamily: 'JockeyOne_400Regular', fontSize: 20, marginTop: 50}}>20 for $100.00</Text>
+                    <Text style={{color: 'white', fontFamily: 'JockeyOne_400Regular', fontSize: 20, marginTop: 50}}>5 for $4.99</Text>
                     <View style={{width: 20, height: 20, borderRadius: 50, backgroundColor: 'white', marginTop: 55}}></View>
                 </View>
             </View>
